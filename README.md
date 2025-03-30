@@ -50,6 +50,23 @@ Install [GitHub CLI](https://cli.github.com/)
 brew install gh
 ```
 
+Install [pyenv](https://github.com/pyenv/pyenv)
+
+```bash
+brew install pyenv
+```
+
+1. Install [Python](https://www.python.org/)
+
+```bash
+pyenv install 3.12
+pyenv global 3.12
+```
+2. Setup `zsh`
+
+```shell
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+```
 
 ## Applications
 
