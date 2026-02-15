@@ -4,7 +4,7 @@
 
 1. **Navegar al directorio del proyecto web:**
    ```bash
-   cd /Users/anthuanvasquez/Sites/mac-dev-setup/web-docs
+   cd ~/Sites/mac-dev-setup/web-docs
    ```
 
 2. **Instalar dependencias:**
@@ -25,7 +25,7 @@
 Si tienes problemas con pnpm, puedes usar npm:
 
 ```bash
-cd /Users/anthuanvasquez/Sites/mac-dev-setup/web-docs
+cd ~/Sites/mac-dev-setup/web-docs
 npm install
 npm run dev
 ```
