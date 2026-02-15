@@ -55,23 +55,25 @@
     </div>
 
     <!-- Extensions Section -->
-    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden hover:shadow-2xl transition-all duration-300">
       <!-- Header -->
-      <div class="bg-gradient-to-r from-gray-50 to-blue-50 px-8 py-6 border-b border-gray-200">
+      <div class="bg-gradient-to-r from-gray-50 via-blue-50 to-indigo-50 dark:from-gray-800 dark:via-blue-900/20 dark:to-indigo-900/20 px-8 py-6 border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center justify-between">
           <div>
-            <h3 class="text-2xl font-bold text-gray-900 flex items-center gap-3">
-              <span class="text-3xl">🔧</span>
-              Extensiones Esenciales
+            <h3 class="text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
+              <span class="text-4xl animate-bounce">🔧</span>
+              <span class="bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
+                Extensiones Esenciales
+              </span>
             </h3>
-            <p class="text-gray-600 mt-1">
+            <p class="text-gray-600 dark:text-gray-300 mt-2 text-lg">
               {{ totalExtensions }} extensiones organizadas por categoría para maximizar tu productividad
             </p>
           </div>
           <div class="text-right">
             <button
               @click="installAllExtensions"
-              class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors flex items-center gap-2 shadow-md"
+              class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 dark:from-blue-500 dark:to-purple-500 dark:hover:from-blue-600 dark:hover:to-purple-600 text-white px-8 py-3 rounded-xl font-bold transition-all duration-300 flex items-center gap-3 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"></path>
@@ -83,39 +85,41 @@
       </div>
 
       <!-- Category Tabs -->
-      <div class="px-8 py-4 bg-gray-50 border-b border-gray-200">
-        <div class="flex flex-wrap gap-2">
+      <div class="px-8 py-6 bg-gray-50 dark:bg-gray-700/50 border-b border-gray-200 dark:border-gray-600">
+        <div class="flex flex-wrap gap-3">
           <button
             v-for="category in extensionCategories"
             :key="category"
             @click="selectedCategory = category"
             :class="[
-              'px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200',
+              'px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 transform hover:-translate-y-1',
               selectedCategory === category
-                ? 'bg-blue-600 text-white shadow-md'
-                : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
+                ? 'bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-500 dark:to-purple-500 text-white shadow-lg'
+                : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600 hover:border-blue-300 dark:hover:border-blue-500 shadow-md hover:shadow-lg'
             ]"
           >
             {{ category }}
-            <span class="ml-1 text-xs opacity-75">({{ getExtensionsByCategory(category).length }})</span>
+            <span class="ml-2 text-xs opacity-75 bg-white/20 dark:bg-black/20 px-2 py-1 rounded-full">
+              {{ getExtensionsByCategory(category).length }}
+            </span>
           </button>
         </div>
       </div>
 
       <!-- Extensions Grid -->
-      <div class="p-8">
-        <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div class="p-8 bg-gray-50/50 dark:bg-gray-800/50">
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           <div
             v-for="extension in getExtensionsByCategory(selectedCategory)"
             :key="extension.id"
-            class="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-all duration-200 border border-gray-200 hover:border-blue-300 group cursor-pointer"
+            class="bg-white dark:bg-gray-800 rounded-xl p-6 hover:bg-gradient-to-br hover:from-white hover:to-blue-50 dark:hover:from-gray-800 dark:hover:to-blue-900/20 transition-all duration-300 border border-gray-200 dark:border-gray-600 hover:border-blue-300 dark:hover:border-blue-500 group cursor-pointer shadow-md hover:shadow-xl transform hover:-translate-y-1"
             @click="toggleExtensionSelection(extension.id)"
           >
-            <div class="flex items-start justify-between mb-3">
+            <div class="flex items-start justify-between mb-4">
               <div class="flex items-center gap-3">
-                <span class="text-2xl">{{ extension.icon }}</span>
+                <span class="text-3xl">{{ extension.icon }}</span>
                 <div class="flex-1">
-                  <h4 class="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+                  <h4 class="font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors text-lg">
                     {{ extension.name }}
                   </h4>
                 </div>
@@ -124,15 +128,15 @@
                 <!-- Selection checkbox -->
                 <div
                   :class="[
-                    'w-5 h-5 rounded border-2 transition-all duration-200 flex items-center justify-center',
+                    'w-6 h-6 rounded-lg border-2 transition-all duration-300 flex items-center justify-center transform hover:scale-110',
                     selectedExtensions.has(extension.id)
-                      ? 'bg-blue-600 border-blue-600'
-                      : 'border-gray-300 group-hover:border-blue-400'
+                      ? 'bg-gradient-to-r from-blue-600 to-purple-600 border-blue-600 shadow-lg'
+                      : 'border-gray-300 dark:border-gray-500 group-hover:border-blue-400 dark:group-hover:border-blue-500'
                   ]"
                 >
                   <svg
                     v-if="selectedExtensions.has(extension.id)"
-                    class="w-3 h-3 text-white"
+                    class="w-4 h-4 text-white"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
