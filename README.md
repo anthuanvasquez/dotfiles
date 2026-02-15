@@ -4,66 +4,94 @@ A macOS setup guide for web development.
 
 ## Initial Setup
 
-### Create `~/Sites` folder:
+### Directory Structure
+
+Create `~/Sites` folder:
 
 ```bash
 mkdir -p ~/Sites
 ```
 
-### Install `xcode-select` (CLI tools):
+### Dependencies
+
+Installing xcode-select (CLI tools):
 
 ```bash
 xcode-select --install
 ```
 
-### Install [Homebrew](https://brew.sh/):
+Installing [Homebrew](https://brew.sh/):
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
+Install [Warp](https://www.warp.dev/)
+
+```bash
+brew install --cask warp
+```
+
+Switch to Warp as default terminal.
+
 ## Install Tools
 
-Install [FNM](https://github.com/Schniz/fnm) (Fast Node Manager):
+### Development Tools
+
+Installing [FNM](https://github.com/Schniz/fnm) (Fast Node Manager):
 
 ```bash
 brew install fnm
 ```
 
-Install [Node](https://nodejs.org/en)
+Installing [Node](https://nodejs.org/en):
 
 ```bash
 fnm install 22.14.0
 fnm use 22.14.0
 ```
 
-Install [PNPM](https://pnpm.io/)
+Installing [PNPM](https://pnpm.io/):
 
 ```bash
 corepack enable pnpm
 corepack use pnpm@latest --activate
 ```
 
-Install [GitHub CLI](https://cli.github.com/)
+Installing [GitHub CLI](https://cli.github.com/):
 
 ```bash
 brew install gh
 ```
 
-Install [pyenv](https://github.com/pyenv/pyenv)
+Installing [pyenv](https://github.com/pyenv/pyenv):
 
 ```bash
 brew install pyenv
 ```
 
-1. Install [Python](https://www.python.org/)
+Installing [Python](https://www.python.org/):
 
 ```bash
 pyenv install 3.12
 pyenv global 3.12
 ```
 
-2. Setup shell environment `zsh`
+### Shell Environment
+
+Installing [Zsh](https://www.zsh.org/):
+
+```bash
+brew install zsh
+```
+
+Installing [Oh My Zsh](https://ohmyz.sh/):
+
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+Add pyenv to zsh:
 
 ```bash
 echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
@@ -90,12 +118,6 @@ Install [1Password](https://1password.com/)
 ```bash
 brew install --cask 1password
 brew install --cask 1password-cli
-```
-
-Install [Warp](https://www.warp.dev/)
-
-```bash
-brew install --cask warp
 ```
 
 Install [OrbStack](https://www.orbstack.dev/)
