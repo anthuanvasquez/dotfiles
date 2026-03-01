@@ -8,9 +8,18 @@ This repository (`Anthuan.Env`) is a comprehensive macOS setup guide and configu
 ## Repository Structure
 
 - **`README.md`**: The core documentation containing manual setup commands (Homebrew, zsh, Node.js via FNM, Python via pyenv, GUI applications, and VS Code extensions).
-- **`shell/.zshrc`, `shell/.aliases`, `shell/.functions`**: Shell configuration files (dotfiles) to customize the Zsh environment, aliases, and Git global settings.
-- **`git/.gitconfig`**: Git global settings.
-- **`editor/antigravity/mcp_config.json`, `editor/antigravity/skills.txt`**: AI Agents configurations.
+- **`Brewfile`**: The central manifest for all Homebrew tools, apps, and fonts.
+- **`dotfiles/shell/.zshrc`**: Shell configuration files (dotfiles) to customize the Zsh environment, aliases, and Git global settings.
+- **`dotfiles/shell/.aliases`**: Shell configuration files (dotfiles) to customize the Zsh environment, aliases, and Git global settings.
+- **`dotfiles/shell/.functions`**: Shell configuration files (dotfiles) to customize the Zsh environment, aliases, and Git global settings.
+- **`dotfiles/git/gitconfig`**: Git global settings.
+- **`dotfiles/git/gitignore_global`**: Git global ignore file.
+- **`editor/vscode/settings.json`**: VS Code settings.
+- **`editor/vscode/keybindings.json`**: VS Code keybindings.
+- **`editor/antigravity/mcp_config.json`**: Antigravity MCP configurations.
+- **`editor/antigravity/skills.txt`**: Antigravity AI Agents skills.
+- **`gemini/settings.json`**: Gemini AI settings.
+- **`scripts/`**: Modular bash scripts that automate the installation steps.
 - **`themes/`**: Contains terminal/editor themes (e.g., Tokyo Night).
 - **`docs/`**: Additional documentation directories.
 - **`web/`**: The frontend interactive web application for the setup guide.
