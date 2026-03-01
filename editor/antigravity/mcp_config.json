@@ -1,20 +1,5 @@
 {
   "mcpServers": {
-    "github-mcp-server": {
-      "command": "docker",
-      "args": [
-        "run",
-        "-i",
-        "--rm",
-        "-e",
-        "GITHUB_PERSONAL_ACCESS_TOKEN",
-        "ghcr.io/github/github-mcp-server"
-      ],
-      "env": {
-        "GITHUB_PERSONAL_ACCESS_TOKEN": "TOKEN"
-      },
-      "disabled": true
-    },
     "notion-mcp-server": {
       "command": "npx",
       "args": [
@@ -22,7 +7,14 @@
         "@notionhq/notion-mcp-server"
       ],
       "env": {
-        "OPENAPI_MCP_HEADERS": "{\"Authorization\": \"Bearer TOKEN\", \"Notion-Version\": \"2022-06-28\"}"
+        "OPENAPI_MCP_HEADERS": "{\"Authorization\": \"Bearer [ENCRYPTION_KEY]\", \"Notion-Version\": \"2022-06-28\"}"
+      },
+      "disabled": true
+    },
+    "github": {
+      "serverUrl": "https://api.githubcopilot.com/mcp/",
+      "headers": {
+        "Authorization": "Bearer [ENCRYPTION_KEY]"
       },
       "disabled": true
     },
@@ -33,35 +25,17 @@
       ],
       "disabled": true
     },
-    "nuxt": {
-      "command": "npx",
+    "engram": {
+      "command": "engram",
       "args": [
-        "mcp-remote",
-        "https://nuxt.com/mcp"
-      ]
-    },
-    "nuxt-ui": {
-      "command": "npx",
-      "args": [
-        "mcp-remote",
-        "https://ui.nuxt.com/mcp"
-      ]
-    },
-    "shadcn": {
-      "command": "npx",
-      "args": [
-        "shadcn@latest",
         "mcp"
       ]
     },
-    "next-devtools": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "next-devtools-mcp@latest"
-      ],
-      "disabledTools": [],
-      "disabled": true
+    "context7": {
+      "serverUrl": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "[ENCRYPTION_KEY]"
+      }
     },
     "StitchMCP": {
       "command": "npx",
@@ -70,7 +44,7 @@
         "mcp-remote",
         "https://stitch.googleapis.com/mcp",
         "--header",
-        "X-Goog-Api-Key: TOKEN"
+        "X-Goog-Api-Key: [ENCRYPTION_KEY]"
       ],
       "env": {}
     }
