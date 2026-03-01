@@ -8,7 +8,9 @@ This repository (`Anthuan.Env`) is a comprehensive macOS setup guide and configu
 ## Repository Structure
 
 - **`README.md`**: The core documentation containing manual setup commands (Homebrew, zsh, Node.js via FNM, Python via pyenv, GUI applications, and VS Code extensions).
-- **`.zshrc`, `.aliases`, `.gitconfig`, `.functions`**: Shell configuration files (dotfiles) to customize the Zsh environment, aliases, and Git global settings.
+- **`shell/.zshrc`, `shell/.aliases`, `shell/.functions`**: Shell configuration files (dotfiles) to customize the Zsh environment, aliases, and Git global settings.
+- **`git/.gitconfig`**: Git global settings.
+- **`editor/antigravity/mcp_config.json`, `editor/antigravity/skills.txt`**: AI Agents configurations.
 - **`themes/`**: Contains terminal/editor themes (e.g., Tokyo Night).
 - **`docs/`**: Additional documentation directories.
 - **`web/`**: The frontend interactive web application for the setup guide.
