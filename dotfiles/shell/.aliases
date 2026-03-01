@@ -69,3 +69,19 @@ alias grh="git reset --hard && git clean -df"
 alias dockrmi='docker rmi $(docker images -q)'
 alias dockrmc='docker rm $(docker ps -a -q)'
 alias dockcmp='docker-compose'
+
+# ------------------------------------------------------------------------------
+# Update Aliases (from Anthuan.Env reference)
+# ------------------------------------------------------------------------------
+
+# One-liner for updating Homebrew and other installed packages.
+alias brewup="brew update && brew upgrade && brew doctor && brew cleanup"
+
+# One-liner for updating npm to the latest version via itself.
+alias npmup="npm i -g npm@latest"
+
+# One-liner for updating pnpm to the latest version via corepack.
+alias pnpmup="corepack prepare pnpm@latest --activate"
+
+# One-liner for updating yarn to the latest version via corepack.
+alias yarnup="corepack prepare yarn@stable --activate"

@@ -133,10 +133,6 @@ eval "$(pyenv init - zsh)"
 export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
 # rustup end
 
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:$HOME/.lmstudio/bin"
-# End of LM Studio CLI section
-
 # Load Angular CLI autocompletion.
 source <(ng completion script)
 

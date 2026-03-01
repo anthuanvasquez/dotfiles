@@ -1,0 +1,193 @@
+{
+    "window.titleBarStyle": "native",
+    "workbench.fontAliasing": "auto",
+    "workbench.editor.enablePreview": true,
+    "workbench.editor.highlightModifiedTabs": true,
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.colorTheme": "Tokyo Night",
+    "workbench.sideBar.location": "right",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.secondarySideBar.showLabels": false,
+    "workbench.colorCustomizations": {
+        "editor.lineHighlightBackground": "#102032",
+        "editorCursor.foreground": "#ffffff",
+        "terminalCursor.foreground": "#ffffff"
+    },
+    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.macOptionIsMeta": true,
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.fontFamily": "FiraCode Nerd Font Mono",
+    "editor.linkedEditing": true,
+    "editor.stickyScroll.enabled": true,
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.fontFamily": "FiraCode Nerd Font",
+    "editor.fontSize": 20,
+    "editor.fontWeight": "600",
+    "editor.fontLigatures": true,
+    "editor.lineHeight": 24,
+    "editor.letterSpacing": 0.5,
+    "editor.cursorStyle": "block",
+    "editor.cursorWidth": 5,
+    "editor.cursorBlinking": "expand",
+    "editor.renderWhitespace": "all",
+    "editor.snippetSuggestions": "top",
+    "editor.glyphMargin": true,
+    "editor.tabSize": 2,
+    "editor.rulers": [
+        80
+    ],
+    "editor.wordWrapColumn": 80,
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.formatOnSave": false,
+    "editor.formatOnPaste": false,
+    "editor.formatOnType": false,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "never"
+    },
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": true,
+    "editor.inlineSuggest.enabled": true,
+    "editor.mouseWheelZoom": true,
+    "editor.minimap.maxColumn": 30,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.decorations.badges": false,
+    "explorer.openEditors.visible": 1,
+    "explorer.sortOrder": "type",
+    "files.trimTrailingWhitespace": true,
+    "files.trimFinalNewlines": true,
+    "files.insertFinalNewline": true,
+    "php.validate.run": "onSave",
+    "projectManager.groupList": true,
+    "projectManager.sortList": "Name",
+    "projectManager.git.baseFolders": [
+        "~/Sites"
+    ],
+    "projectManager.git.ignoredFolders": [
+        "node_modules",
+        "out",
+        "typings",
+        "test",
+        "fork*",
+        "wp"
+    ],
+    "eslint.run": "onSave",
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "vue"
+    ],
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact",
+        "vue": "html",
+        "php": "html"
+    },
+    "colorize.languages": [
+        "javascript",
+        "javascriptreact",
+        "vue",
+        "css",
+        "scss",
+        "json"
+    ],
+    "highlight-matching-tag.styles": {
+        "opening": {
+            "full": {
+                "custom": {
+                    "backgroundColor": "rgba(165, 153, 233, 0.1)"
+                }
+            },
+            "left": {
+                "custom": {
+                    "borderWidth": "0"
+                }
+            },
+            "right": {
+                "custom": {
+                    "borderWidth": "0"
+                }
+            }
+        }
+    },
+    "stylelint.enable": true,
+    "stylelint.validate": [
+        "css",
+        "scss"
+    ],
+    "scss.validate": false,
+    "less.validate": false,
+    "css.validate": false,
+    "auto-rename-tag.activationOnLanguage": [
+        "html",
+        "xml",
+        "php",
+        "javascript"
+    ],
+    "githubPullRequests.pullBranch": "never",
+    "git.confirmSync": false,
+    "RainbowBrackets.depreciation-notice": false,
+    "redhat.telemetry.enabled": false,
+    "vue.autoInsert.dotValue": true,
+    "search.exclude": {
+        "**/.*cache": true,
+        "**/.next": true,
+        "**/*-lock.*": true,
+        "**/*.lock": true,
+        "**/bower_components": true,
+        "**/build": true,
+        "**/coverage": true,
+        "**/dist": true,
+        "**/node_modules": true,
+        "**/out": true,
+        "**/playwright-report": true,
+        "**/storybook-build": true,
+        "**/test-results": true
+    },
+    "tailwindCSS.emmetCompletions": true,
+    "tailwindCSS.experimental.classRegex": [
+        ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+        ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"],
+        ["cn\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+    ],
+    "[php, html, javascript, typescript, typescriptreact, handlebars]": {
+        "editor.rulers": [
+            120
+        ],
+        "editor.wordWrapColumn": 120,
+        "editor.wordWrap": "wordWrapColumn"
+    },
+    "[json]": {
+        "files.trimFinalNewlines": false,
+        "files.insertFinalNewline": false,
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[html, vue, javascript, typescript, typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[scss, css]": {
+        "editor.defaultFormatter": "stylelint.vscode-stylelint"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[handlebars]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "indentRainbow.colors": [
+        "rgba(29, 78, 137,0.15)",
+        "rgba(58, 178, 202,0.15)",
+        "rgba(125, 207, 182, 0.15)",
+        "rgba(251, 209, 162,0.15)",
+        "rgba(247, 146, 86,0.15)",
+        "rgba(247, 146, 86,0.1)",
+        "rgba(247, 146, 86,0.05)"
+    ],
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "database-client.autoSync": true,
+    "http.systemCertificatesNode": true,
+    "geminicodeassist.project": "trusty-kite-kn78f",
+    "chat.disableAIFeatures": true
+}
