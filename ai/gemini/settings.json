@@ -1,0 +1,29 @@
+{
+  "ui": {
+    "theme": "Atom One"
+  },
+  "mcpServers": {
+    "notion-mcp-server": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@notionhq/notion-mcp-server"
+      ],
+      "env": {
+        "OPENAPI_MCP_HEADERS": "{\"Authorization\": \"Bearer TOKEN\", \"Notion-Version\": \"2022-06-28\"}"
+      }
+    },
+    "notebooklm": {
+      "command": "npx",
+      "args": [
+        "notebooklm-mcp@latest"
+      ]
+    }
+  },
+  "context": {
+    "fileName": [
+      "AGENTS.md",
+      "GEMINI.md"
+    ]
+  }
+}

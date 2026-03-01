@@ -1,3 +1,4 @@
+```shell
 [user]
 	name = [NAME]
 	email = [EMAIL_ADDRESS]
@@ -17,3 +18,4 @@
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
+```
