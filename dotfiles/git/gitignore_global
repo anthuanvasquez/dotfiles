@@ -1,0 +1,28 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDEs
+.idea/
+*.swp
+*.swo
+
+# Environments
+.env
+.env.local
+.env
+.env.development
+.env.production
+.env.staging
+node_modules/
+.turbo
+.cache
+.next
+.output
+dist/
+build/
+
+# Misc
+*.log
+*.zip
