@@ -1,9 +1,5 @@
 # Anthuan.Env
 
-<div align="center">
-  <img src="./assets/logo.png" alt="Anthuan.Env Logo" width="400"/>
-</div>
-
 ## What is this?
 
 A macOS setup guide and configuration repository for web development. This repository organizes dotfiles and provides automated scripts to bootstrap a new Mac quickly.
