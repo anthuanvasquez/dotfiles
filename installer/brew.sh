@@ -18,6 +18,6 @@ else
 fi
 
 echo "Installing dependencies from Brewfile..."
-brew bundle --file=./Brewfile
+brew bundle --file="$(dirname "$0")/../Brewfile"
 
 echo "Brew installation complete!"
