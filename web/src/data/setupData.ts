@@ -505,3 +505,22 @@ export const vscodeExtensions: VSCodeExtension[] = [
     icon: '🤖'
   }
 ];
+
+export const extensionCategories = [
+  'Esenciales',
+  'Linters & Formatters',
+  'Frameworks',
+  'IntelliSense',
+  'Git & CI/CD',
+  'Utilidades',
+  'Tema & Apariencia',
+  'AI & Productividad'
+];
+
+export const categories = [
+  'Automated Setup',
+  'Initial Setup',
+  'Development Tools',
+  'Applications',
+  'Code Editor'
+];
