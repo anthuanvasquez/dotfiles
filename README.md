@@ -42,28 +42,27 @@ chmod +x scripts/*.sh
 
 ### 3. Apply Dotfiles with Stow
 
-We use GNU Stow to manage symlinks cleanly from the `dotfiles/` directory to your home directory (`~`).
+We use GNU Stow to manage symlinks cleanly from the root directory to your home directory (`~`).
 
 ```bash
-cd ~/Sites/Anthuan.Env/dotfiles
+cd ~/Sites/Anthuan.Env
 stow shell
 stow git
+stow rclone
 ```
 
 ## Directory Structure
 
 We keep things organized to make this scalable and maintainable:
 
-- `dotfiles/`: Contains the actual configuration files like `.zshrc`, `.gitconfig`, mapping them to your home directory cleanly.
-  - `shell/`: Zsh configurations, aliases, and functions.
-  - `git/`: Git global settings.
-- `editor/`: Editor configurations.
-  - `vscode/`: VS Code settings.
-  - `antigravity/`: Antigravity MCP configurations.
+- `shell/`: Zsh configurations, aliases, and functions.
+- `git/`: Git global settings.
+- `rclone/`: RClone exclusion patterns.
+- `vscode/`: VS Code settings and extension installation scripts.
+- `antigravity/`: Antigravity MCP configurations and AI skills.
 - `gemini/`: Gemini AI settings.
 - `scripts/`: Modular bash scripts that automate the installation steps.
 - `Brewfile`: The central manifest for all Homebrew tools, apps, and fonts.
-- `themes/`: Terminal and editor theme configs (e.g., Tokyo Night).
 - `web/`: An interactive frontend application mapping out the setup visually.
 
 ## Manual Execution (Optional)
