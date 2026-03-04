@@ -1,4 +1,4 @@
-# Dockerfile.test for Anthuan.Env
+# Dockerfile.test for Anva.Env
 # Used for sandboxed testing of CLI tools and installation scripts on Linux
 
 FROM ubuntu:24.04
@@ -31,7 +31,7 @@ ENV PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:${PATH}
 ENV HOMEBREW_ON_LINUX=1
 
 # Simulate the local copy
-WORKDIR /home/linuxbrew/Anthuan.Env
+WORKDIR /home/linuxbrew/Anva.Env
 COPY --chown=linuxbrew:linuxbrew . .
 
 # Prepare a Linux-friendly Brewfile (Remove casks)

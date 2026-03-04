@@ -1,4 +1,4 @@
-# Anthuan.Env
+# Anva.Env
 
 ## What is this?
 
@@ -12,13 +12,13 @@ A macOS setup guide and configuration repository for web development. This repos
 
 ### 1. Download the repository
 
-Clone this repository to your preferred location (e.g., `~/Sites/Anthuan.Env`).
+Clone this repository to your preferred location (e.g., `~/Sites/Anva.Env`).
 
 ```bash
 mkdir -p ~/Sites
 cd ~/Sites
-git clone git@github.com:anthuanvasquez/Anthuan.Env.git
-cd Anthuan.Env
+git clone git@github.com:anthuanvasquez/Anva.Env.git
+cd Anva.Env
 ```
 
 ### 2. Run the main installer
@@ -32,12 +32,12 @@ This script will run everything in sequence:
 To run the installation:
 
 ```bash
-./scripts/install.sh
+./installer/install.sh
 ```
 
 **Note:** If you get a permission error, ensure the scripts are executable:
 ```bash
-chmod +x scripts/*.sh
+chmod +x installer/*.sh
 ```
 
 ### 3. Apply Dotfiles with Stow
@@ -45,7 +45,7 @@ chmod +x scripts/*.sh
 We use GNU Stow to manage symlinks cleanly from the root directory to your home directory (`~`).
 
 ```bash
-cd ~/Sites/Anthuan.Env
+cd ~/Sites/Anva.Env
 stow shell
 stow git
 stow rclone
@@ -61,7 +61,7 @@ We keep things organized to make this scalable and maintainable:
 - `vscode/`: VS Code settings and extension installation scripts.
 - `antigravity/`: Antigravity MCP configurations and AI skills.
 - `gemini/`: Gemini AI settings.
-- `scripts/`: Modular bash scripts that automate the installation steps.
+- `installer/`: Modular bash scripts that automate the installation steps.
 - `Brewfile`: The central manifest for all Homebrew tools, apps, and fonts.
 - `web/`: An interactive frontend application mapping out the setup visually.
 
@@ -70,11 +70,11 @@ We keep things organized to make this scalable and maintainable:
 If you'd rather run steps individually, you can execute any script independently:
 
 ```bash
-./scripts/brew.sh       # Installs brew and Brewfile dependencies
-./scripts/node.sh       # Sets up FNM, Node, PNPM
-./scripts/python.sh     # Sets up Pyenv and Python 3.12
-./scripts/vscode.sh     # Installs VS Code extensions
-./scripts/macos.sh      # Applies sensible macOS defaults
+./installer/brew.sh       # Installs brew and Brewfile dependencies
+./installer/node.sh       # Sets up FNM, Node, PNPM
+./installer/python.sh     # Sets up Pyenv and Python 3.12
+./installer/vscode.sh     # Installs VS Code extensions
+./installer/macos.sh      # Applies sensible macOS defaults
 ```
 
 ## The Web Application (`/web`)

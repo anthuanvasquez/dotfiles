@@ -58,7 +58,7 @@ const handleToolCompleted = (toolId: string, completed: boolean) => {
         <div class="flex items-center justify-between h-16">
           <div class="flex items-center gap-3">
             <div class="text-2xl animate-pulse-slow">🍎</div>
-            <h1 class="text-xl font-bold text-gray-900 dark:text-white">Anthuan.Env</h1>
+            <h1 class="text-xl font-bold text-gray-900 dark:text-white">Anva.Env</h1>
           </div>
           <nav class="flex items-center gap-6">
             <a
@@ -106,7 +106,7 @@ const handleToolCompleted = (toolId: string, completed: boolean) => {
 
         <h1 class="text-6xl md:text-7xl font-bold text-gray-900 dark:text-white mb-8 leading-tight">
           <span class="bg-gradient-to-r from-primary-600 via-secondary-600 to-purple-600 bg-clip-text text-transparent">
-            Anthuan.Env
+            Anva.Env
           </span>
         </h1>
 
@@ -127,7 +127,7 @@ const handleToolCompleted = (toolId: string, completed: boolean) => {
           </a>
 
           <a
-            href="https://github.com/anthuanvasquez/Anthuan.Env"
+            href="https://github.com/anthuanvasquez/Anva.Env"
             target="_blank"
             class="group border-2 border-gray-300 dark:border-gray-600 hover:border-primary-500 dark:hover:border-primary-400 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 inline-flex items-center gap-3 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm hover:bg-white dark:hover:bg-gray-800"
           >
@@ -264,7 +264,7 @@ const handleToolCompleted = (toolId: string, completed: boolean) => {
           <div class="flex flex-col md:flex-row justify-between items-center">
             <div class="flex items-center gap-6 mb-4 md:mb-0">
               <a
-                href="https://github.com/anthuanvasquez/Anthuan.Env"
+                href="https://github.com/anthuanvasquez/Anva.Env"
                 target="_blank"
                 class="flex items-center gap-2 text-gray-300 hover:text-white transition-colors duration-200"
               >
@@ -286,7 +286,7 @@ const handleToolCompleted = (toolId: string, completed: boolean) => {
                 Hecho con <span class="text-red-400">❤️</span> para la comunidad dev
               </p>
               <p class="text-gray-500 text-xs mt-1">
-                © 2026 Anthuan.Env. Código abierto bajo licencia MIT.
+                © 2026 Anva.Env. Código abierto bajo licencia MIT.
               </p>
             </div>
           </div>
