@@ -1,0 +1,62 @@
+# Dockerfile.test for Anthuan.Env
+# Used for sandboxed testing of CLI tools and installation scripts on Linux
+
+FROM ubuntu:24.04
+
+# Avoid interactive prompts during apt install
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install essential dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    curl \
+    git \
+    sudo \
+    procps \
+    file \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create a non-root user for Homebrew and scripts
+RUN useradd -m -s /bin/bash linuxbrew && \
+    echo "linuxbrew ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+USER linuxbrew
+WORKDIR /home/linuxbrew
+
+# Install Homebrew for Linux
+RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Set up Homebrew environment
+ENV PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:${PATH}"
+ENV HOMEBREW_ON_LINUX=1
+
+# Simulate the local copy
+WORKDIR /home/linuxbrew/Anthuan.Env
+COPY --chown=linuxbrew:linuxbrew . .
+
+# Prepare a Linux-friendly Brewfile (Remove casks)
+RUN grep -v "cask" Brewfile > Brewfile.linux
+
+# Sandbox execution script
+RUN echo '#!/bin/bash \n\
+echo "--- Testing Homebrew Installation ---" \n\
+brew bundle --file=Brewfile.linux \n\
+\n\
+echo "--- Testing Node.js Setup ---" \n\
+bash scripts/node.sh \n\
+\n\
+echo "--- Testing Python Setup ---" \n\
+# pyenv requires some dependencies on Linux that might be missing, but lets try \n\
+bash scripts/python.sh \n\
+\n\
+echo "--- Testing Dotfiles with Stow ---" \n\
+cd dotfiles \n\
+stow shell \n\
+stow git \n\
+stow zsh \n\
+\n\
+echo "--- Sandbox Test Complete ---" \n\
+' > test-all.sh && chmod +x test-all.sh
+
+# Default command
+CMD ["./test-all.sh"]
