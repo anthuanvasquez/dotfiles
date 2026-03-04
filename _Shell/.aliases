@@ -71,7 +71,7 @@ alias dockrmc='docker rm $(docker ps -a -q)'
 alias dockcmp='docker-compose'
 
 # ------------------------------------------------------------------------------
-# Update Aliases (from Anthuan.Env reference)
+# Update Aliases (from Dotfiles reference)
 # ------------------------------------------------------------------------------
 
 # One-liner for updating Homebrew and other installed packages.

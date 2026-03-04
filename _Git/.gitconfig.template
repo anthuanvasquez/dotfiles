@@ -1,6 +1,6 @@
 [user]
 	name = Anthuan Vasquez
-	email = me@anthuanvasquez.net
+	email = my@mail.com
 	signingkey = ~/.ssh/id_ed25519.pub
 
 [commit]
