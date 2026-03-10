@@ -1,16 +1,14 @@
 # Global Environment Variables
-export DOTFILES="$HOME/dotfiles"
+# This file is sourced by .zshrc after path.zsh
+
 export EDITOR="code"
-export PATH="$HOME/bin:$HOME/.local/bin:$DOTFILES/bin:$PATH"
+export VISUAL="code"
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
 
-# Personal PATH additions
-export PATH="$HOME/.cargo/bin:$PATH"
-export PNPM_HOME="$HOME/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+# Tool-specific environment
+export STARSHIP_CONFIG="$DOTFILES/home/.config/starship.toml"
+export GPG_TTY=$(tty)
 
-# Specific tool paths
-export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
-export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
-export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
+# Ensure Antigravity/AI tools have necessary context if needed
+# export ANTIGRAVITY_SKILLS="$DOTFILES/modules/antigravity/skills.txt"
