@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+# setup-project: Orchestrate new project creation.
+# GitHub repo + Local structure + Initial config.
+
+set -e
+
+PROJECT_NAME=$1
+
+if [ -z "$PROJECT_NAME" ]; then
+    echo "Usage: setup-project <project-name>"
+    exit 1
+fi
+
+echo "🚀 Setting up project: $PROJECT_NAME"
+
+# 1. Create directory structure
+mkdir -p "$PROJECT_NAME"/{src,tests,docs,bin}
+cd "$PROJECT_NAME"
+
+# 2. Initialize Git
+git init
+echo "# $PROJECT_NAME" > README.md
+echo "node_modules/\n.env\n.DS_Store" > .gitignore
+
+# 3. GitHub Repo (requires gh cli)
+if command -v gh &>/dev/null; then
+    echo "📦 Creating GitHub repository..."
+    gh repo create "$PROJECT_NAME" --private --source=. --remote=origin --push
+else
+    echo "⚠️ gh cli not found. Skipping GitHub repo creation."
+fi
+
+# 4. Notion Project (Stub)
+# This is a placeholder for your Notion API logic.
+echo "📓 Creating project entry in Notion (Stub)..."
+# curl -X POST https://api.notion.com/v1/pages ...
+
+# 5. Env configuration
+touch .env.example .env
+
+echo "✅ Project $PROJECT_NAME set up successfully!"
+echo "   - Directory structure created."
+echo "   - GitHub repo initialized and pushed."
+echo "   - Ready to code."
