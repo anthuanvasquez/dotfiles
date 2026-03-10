@@ -40,30 +40,6 @@ To run the installation:
 chmod +x installer/*.sh
 ```
 
-### 3. Apply Dotfiles with Stow
-
-We use GNU Stow to manage symlinks cleanly from the root directory to your home directory (`~`).
-
-```bash
-cd ~/Sites/dotfiles
-stow shell
-stow git
-stow rclone
-```
-
-## Directory Structure
-
-We keep things organized to make this scalable and maintainable:
-
-- `_Shell/`: Zsh configurations, aliases, and functions.
-- `_Git/`: Git global settings.
-- `_RClone/`: RClone exclusion patterns.
-- `_VSCode/`: VS Code settings and extension installation scripts.
-- `_Antigravity/`: Antigravity MCP configurations and AI skills.
-- `_Gemini/`: Gemini AI settings.
-- `installer/`: Modular bash scripts that automate the installation steps.
-- `Brewfile`: The central manifest for all Homebrew tools, apps, and fonts.
-- `web/`: An interactive frontend application mapping out the setup visually.
 
 ## Manual Execution (Optional)
 
