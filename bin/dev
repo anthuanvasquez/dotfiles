@@ -1,0 +1,77 @@
+#!/usr/bin/env bash
+# dev: Project orchestrator.
+# Inspired by Stripe/Shopify developer flows.
+
+set -e
+
+usage() {
+    echo "Usage: dev <command>"
+    echo ""
+    echo "Commands:"
+    echo "  up        Start environment (install deps + docker + dev server)"
+    echo "  down      Stop everything related to the project"
+    echo "  db-reset  Reset database, run migrations and seeds"
+    echo "  clean     Delete node_modules, dist, and build artifacts"
+    echo "  test      Run project tests"
+}
+
+# Helper to detect package manager
+get_pkg_manager() {
+    if [ -f "pnpm-lock.yaml" ]; then echo "pnpm";
+    elif [ -f "yarn.lock" ]; then echo "yarn";
+    else echo "npm"; fi
+}
+
+case "$1" in
+    up)
+        PKG=$(get_pkg_manager)
+        echo "🚀 Starting project environment..."
+        
+        if [ -f "docker-compose.yml" ]; then
+            echo "🐳 Launching Docker containers..."
+            docker-compose up -d
+        fi
+
+        echo "📦 Installing dependencies with $PKG..."
+        $PKG install
+
+        if [ -f "package.json" ]; then
+            echo "🏃 Starting dev server..."
+            $PKG run dev || $PKG start
+        fi
+        ;;
+
+    down)
+        echo "🛑 Shutting down environment..."
+        if [ -f "docker-compose.yml" ]; then
+            docker-compose down
+        fi
+        ;;
+
+    db-reset)
+        echo "🔄 Resetting database..."
+        if [ -f "docker-compose.yml" ]; then
+            # Example for standard docker setups
+            docker-compose exec -T db sh -c 'exec mysql -uroot -p"$MYSQL_ROOT_PASSWORD" -e "drop database if exists app; create database app;"' 2>/dev/null || true
+        fi
+        PKG=$(get_pkg_manager)
+        $PKG run db:migrate || echo "No migrations found"
+        $PKG run db:seed || echo "No seeds found"
+        ;;
+
+    clean)
+        echo "🧹 Cleaning project artifacts..."
+        rm -rf node_modules .next dist build .turbo out .cache
+        echo "✅ Clean as a whistle."
+        ;;
+
+    test)
+        PKG=$(get_pkg_manager)
+        echo "🧪 Running tests..."
+        $PKG test
+        ;;
+
+    *)
+        usage
+        ;;
+esac

@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+# git-cleanup: Maintain git hygiene.
+
+set -e
+
+usage() {
+    echo "Usage: git-cleanup <command>"
+    echo ""
+    echo "Commands:"
+    echo "  branches    Delete all local branches already merged into current"
+    echo "  nuke        Reset current branch to its upstream (hard reset)"
+}
+
+case "$1" in
+    branches)
+        echo "🧹 Deleting merged branches..."
+        # Get current branch to avoid deleting it
+        CURRENT_BRANCH=$(git symbolic-ref --short HEAD)
+        
+        # Delete branches that are merged into the current one, except current, master, or main
+        git branch --merged | grep -v "\*" | grep -v "master" | grep -v "main" | xargs -n 1 git branch -d || echo "No merged branches to delete."
+        ;;
+
+    nuke)
+        echo "☢️ NUCLEAR RESET..."
+        CURRENT_BRANCH=$(git symbolic-ref --short HEAD)
+        UPSTREAM=$(git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null || echo "origin/$CURRENT_BRANCH")
+        
+        echo "   [!] Resetting $CURRENT_BRANCH to $UPSTREAM..."
+        git fetch origin
+        git reset --hard "$UPSTREAM"
+        git clean -df
+        echo "✅ System reset to $UPSTREAM."
+        ;;
+
+    *)
+        usage
+        ;;
+esac
