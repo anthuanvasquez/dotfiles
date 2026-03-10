@@ -4,10 +4,12 @@ tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "gentleman-programming/tap/engram"
 
-# Formulas (Command Line Tools)
+# Formulas
 brew "zsh"
+brew "jandedobbeleer/oh-my-posh/oh-my-posh"
 brew "atuin"
 brew "zoxide"
+brew "fzf"
 brew "fnm"
 brew "bun"
 brew "gh"
@@ -18,7 +20,7 @@ brew "tree"
 brew "git-lfs"
 brew "git-delta"
 
-# Casks (GUI Applications)
+# Casks
 cask "warp"
 cask "google-chrome"
 cask "1password"
