@@ -1,6 +1,6 @@
 [user]
 	name = Anthuan Vasquez
-	email = my@mail.com
+	email = anthuan@vasquez.dev
 	signingkey = ~/.ssh/id_ed25519.pub
 
 [commit]
@@ -28,6 +28,12 @@
 	pager          = delta
 	excludesfile   = ~/.gitignore_global
 
+[pull]
+	rebase = true
+
+[push]
+	default = current
+
 [log]
 	date = iso
 
@@ -44,9 +50,12 @@
 	sweep = "!git branch --merged main | grep -v '\\* main' | xargs git branch -d"
 	conflicts = diff --name-only --diff-filter=U
 
+[interactive]
+	diffFilter = delta --color-only
+
 [delta]
 	navigate         = true
-	side-by-side     = false
+	side-by-side     = true
 	line-numbers     = true
 	syntax-theme     = Dracula
 	hyperlinks       = true
