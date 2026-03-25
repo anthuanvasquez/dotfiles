@@ -19,7 +19,7 @@ if ! command -v brew &>/dev/null; then
 fi
 
 echo "📦 Installing packages from Brewfile..."
-brew bundle --file=Brewfile
+./scripts/install-packages
 
 # 3. Apply settings
 echo " Applying macOS settings..."
@@ -37,7 +37,7 @@ fi
 # VSCode module (requires code command)
 if command -v code &>/dev/null; then
     echo "   [VSCODE] Configuring..."
-    ./modules/vscode/vscode.sh
+    ./modules/vscode/install.sh
 fi
 
 echo "✨ All done! Open a new shell to enjoy your setup."
