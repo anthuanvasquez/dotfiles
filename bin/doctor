@@ -37,10 +37,6 @@ check_tool "kubectl" "Kubernetes control"
 check_tool "gh" "GitHub CLI"
 
 echo "--- System Health ---"
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  echo "   [✅] Running on macOS"
-else
-  echo "   [✅] Running on Linux/WSL"
-fi
+echo "   [✅] Running on macOS"
 
 echo "✨ Diagnostics complete."

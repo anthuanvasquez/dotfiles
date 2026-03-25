@@ -23,9 +23,8 @@ jobs:
       - name: Test Installation (Dry Run logic)
         run: |
           echo "🚀 Starting macOS Integration Test"
-          # On CI, we want to verify the logic without installing 50 heavy GUI apps
-          # So we check the Brewfile syntax first
-          brew bundle check --file=packages/macos || echo "⚠️ Some bundles are not installed (expected on clean CI)"
+          
+          brew bundle check --file=Brewfile || echo "⚠️ Some bundles are not installed (expected on clean CI)"
           
           echo "--- Running Install Orchestrator ---"
           ./install

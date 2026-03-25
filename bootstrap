@@ -7,12 +7,10 @@ set -e
 # Define directories
 DOTFILES_DIR="$HOME/dotfiles"
 
-# 1. Install Xcode Command Line Tools (macOS only)
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  if ! xcode-select -p &>/dev/null; then
-    echo "🛠️ Installing Xcode Command Line Tools..."
-    xcode-select --install
-  fi
+# 1. Install Xcode Command Line Tools
+if ! xcode-select -p &>/dev/null; then
+  echo "🛠️ Installing Xcode Command Line Tools..."
+  xcode-select --install
 fi
 
 # 2. Clone repo if not already there
