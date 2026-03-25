@@ -12,6 +12,6 @@ fnm default 22.22.2
 
 echo "Enabling Corepack for modern package managers..."
 corepack enable pnpm
-corepack use pnpm@latest --activate
+corepack prepare pnpm@latest --activate
 
 echo "Node.js environment setup complete!"
