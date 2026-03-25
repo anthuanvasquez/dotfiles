@@ -1,6 +1,6 @@
 # Taps
 tap "oven-sh/bun"
-tap "gentleman-programming/tap/engram"
+tap "gentleman-programming/tap"
 
 # Formulas
 brew "zsh"
