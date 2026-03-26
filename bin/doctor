@@ -20,7 +20,7 @@ check_tool "brew" "Package manager (macOS)"
 check_tool "git" "Version control"
 check_tool "zsh" "Default shell"
 check_tool "fzf" "Fuzzy finder"
-check_tool "ripgrep" "Fast grep (rg)"
+check_tool "rg" "Fast grep (rg)"
 check_tool "bat" "Cat with wings"
 
 echo "--- Languages & Runtimes ---"
