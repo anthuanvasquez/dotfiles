@@ -35,5 +35,20 @@ If you have already cloned the repository:
 3. **Automation**: A single command to recreate the entire environment.
 4. **Declarative**: The repository is the source of truth for the machine's state.
 
+## 📜 Personal Binaries (`bin/`)
+
+The following scripts are automatically added to your `$PATH` and are used for machine maintenance, project orchestration, and productivity.
+
+| Binary | Description | Commands / Arguments |
+| :--- | :--- | :--- |
+| `dev` | Project orchestrator (Stripe/Shopify flow). | `up` (start env), `down` (stop env), `db-reset` (reset DB), `clean` (delete artifacts), `test` (run tests) |
+| `docker-reset` | Deep clean of Docker containers, images, and volumes. | *N/A* (requires interactive `y/N` confirmation) |
+| `doctor` | Environment diagnostics for installed tools and runtimes. | *N/A* |
+| `dot` | Quick access and management of dotfiles. | `cd` (go to dir), `edit` (open in VS Code), `reload` (source .zshrc), `install` (run installer) |
+| `git-cleanup` | Maintain Git hygiene by removing merged branches. | `branches` (delete merged), `nuke` (reset to upstream) |
+| `git-sync` | Sync local branches with origin and prune stale data. | *N/A* |
+| `setup-project` | AI-Ready project scaffolding with Notion/GitHub integration. | `<project-name>` (creates structure + AGENTS.md) |
+| `update` | Global machine update (Dotfiles, Homebrew, Node packages). | *N/A* |
+
 ---
 Maintained by [Anthuan Vasquez](https://github.com/anthuanvasquez)
