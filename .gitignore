@@ -25,3 +25,8 @@ coverage
 *.sw?
 
 *.tsbuildinfo
+
+# Pi agent session files (temporary)
+.pi/agent-sessions/
+.pi/temp/
+.pi/*.lock
