@@ -25,6 +25,7 @@ import { spawn } from "child_process";
 import { readdirSync, readFileSync, existsSync, mkdirSync, unlinkSync } from "fs";
 import { homedir } from "os";
 import { join, resolve } from "path";
+import subagentExtension from "./subagent/index.js";
 
 // ── Types ────────────────────────────────────────
 
@@ -491,6 +492,9 @@ export default function (pi: ExtensionAPI) {
 			});
 		});
 	}
+
+	// ── Register subagent extension for ephemeral task delegation ──
+	subagentExtension(pi);
 
 	// ── dispatch_agent Tool (registered at top level) ──
 
