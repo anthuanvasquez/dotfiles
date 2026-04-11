@@ -23,6 +23,7 @@ import { Type } from "@sinclair/typebox";
 import { Text, type AutocompleteItem, truncateToWidth, visibleWidth } from "@mariozechner/pi-tui";
 import { spawn } from "child_process";
 import { readdirSync, readFileSync, existsSync, mkdirSync, unlinkSync } from "fs";
+import { homedir } from "os";
 import { join, resolve } from "path";
 
 // ── Types ────────────────────────────────────────
@@ -105,8 +106,13 @@ function parseAgentFile(filePath: string): AgentDef | null {
 }
 
 function scanAgentDirs(cwd: string): AgentDef[] {
+	const userHome = homedir();
 	const dirs = [
+		// Prioridad 1: Entorno del proyecto
 		join(cwd, ".pi", "agents"),
+		// Prioridad 2: Entorno global del usuario
+		join(userHome, ".pi", "agent", "agents"),
+		// Mantenemos el directorio por defecto de la extensión por si acaso
 		join(getAgentDir(), "agents"),
 	];
 
@@ -153,11 +159,34 @@ export default function (pi: ExtensionAPI) {
 		// Load all agent definitions
 		allAgentDefs = scanAgentDirs(cwd);
 
-		// Load teams from .pi/agents/teams.yaml
-		const teamsPath = join(cwd, ".pi", "agents", "teams.yaml");
-		if (existsSync(teamsPath)) {
+		// --- NUEVA LÓGICA DE CARGA DE TEAMS ---
+		const userHome = homedir();
+		
+		// Definimos las posibles rutas ordenadas por prioridad (Local > Global)
+		// y soportando tanto .yaml como .yml
+		const possibleTeamPaths = [
+			join(cwd, ".pi", "agents", "teams.yaml"),
+			join(cwd, ".pi", "agents", "teams.yml"),
+			join(userHome, ".pi", "agent", "agents", "teams.yaml"),
+			join(userHome, ".pi", "agent", "agents", "teams.yml"),
+		];
+
+		let rawTeams = "";
+		for (const teamsPath of possibleTeamPaths) {
+			if (existsSync(teamsPath)) {
+				try {
+					rawTeams = readFileSync(teamsPath, "utf-8");
+					break; // Detener la búsqueda en cuanto encontremos el primer archivo válido
+				} catch (e) {
+					// Si hay error leyendo, intentamos con el siguiente
+					continue;
+				}
+			}
+		}
+
+		if (rawTeams) {
 			try {
-				teams = parseTeamsYaml(readFileSync(teamsPath, "utf-8"));
+				teams = parseTeamsYaml(rawTeams);
 			} catch {
 				teams = {};
 			}
