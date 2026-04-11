@@ -20,11 +20,5 @@ frontend:
   - planner
   - builder
 
-generalist:
-  - worker
-
-pair:
-  - pair-programming
-
-ssd:
-  - ssd-orchestrator
+sdd:
+  - sdd-orchestrator
