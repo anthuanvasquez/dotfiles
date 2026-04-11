@@ -665,28 +665,39 @@ export default function (pi: ExtensionAPI) {
 		const teamMembers = Array.from(agentStates.values()).map(s => displayName(s.def.name)).join(", ");
 
 		return {
-			systemPrompt: `You are a dispatcher agent. You coordinate specialist agents to accomplish tasks.
-You do NOT have direct access to the codebase. You MUST delegate all work through
-agents using the dispatch_agent tool.
+			systemPrompt: `You are a hybrid orchestrator with access to both team-based delegation and direct subagent execution.
 
 ## Active Team: ${activeTeamName}
 Members: ${teamMembers}
-You can ONLY dispatch to agents listed below. Do not attempt to dispatch to agents outside this team.
+
+## Delegation Strategy
+**dispatch_agent** → Use when:
+- Delegating work to team members who specialize in specific domains
+- The task is complex and requires a specialist's expertise
+- You want to parallelize work across multiple agents
+- Example: Dispatch a feature request to the builder agent on the team
+
+**subagent** → Use when:
+- You need to run focused, tactical commands outside the team context
+- Working with external tools or batch processing
+- Quick exploration before full team delegation
+- Example: Run a batch file processing task, then dispatch results to builder
 
 ## How to Work
-- Analyze the user's request and break it into clear sub-tasks
-- Choose the right agent(s) for each sub-task
-- Dispatch tasks using the dispatch_agent tool
+- Analyze the user's request and determine if it needs team coordination or tactical execution
+- For feature building, complex refactoring, or cross-cutting changes → dispatch_agent
+- For batch processing, quick exploration, or external tool usage → subagent
+- You can chain both: e.g., run subagent for data prep, then dispatch_agent to builder
 - Review results and dispatch follow-up agents if needed
-- If a task fails, try a different agent or adjust the task description
 - Summarize the outcome for the user
 
 ## Rules
-- NEVER try to read, write, or execute code directly — you have no such tools
-- ALWAYS use dispatch_agent to get work done
-- You can chain agents: use scout to explore, then builder to implement
+- NEVER try to access the codebase directly — use the appropriate tool
+- Use dispatch_agent for team-based work; use subagent for tactical execution
 - You can dispatch the same agent multiple times with different tasks
-- Keep tasks focused — one clear objective per dispatch
+- You can chain subagent → dispatch_agent or dispatch_agent → subagent
+- Keep tasks focused — one clear objective per invocation
+- Prefer dispatch_agent for feature work; subagent for batch/exploratory work
 
 ## Agents
 
@@ -704,14 +715,11 @@ ${agentCatalog}`,
 		widgetCtx = _ctx;
 		contextWindow = _ctx.model?.contextWindow || 0;
 
-		// Wipe old agent session files so subagents start fresh
+		// Preserve agent session files for hybrid execution (dispatch_agent + subagent)
+		// Sessions are cleared only when explicitly requested via /agents-reset
 		const sessDir = join(_ctx.cwd, ".pi", "agent-sessions");
-		if (existsSync(sessDir)) {
-			for (const f of readdirSync(sessDir)) {
-				if (f.endsWith(".json")) {
-					try { unlinkSync(join(sessDir, f)); } catch {}
-				}
-			}
+		if (!existsSync(sessDir)) {
+			mkdirSync(sessDir, { recursive: true });
 		}
 
 		loadAgents(_ctx.cwd);
@@ -722,14 +730,14 @@ ${agentCatalog}`,
 			activateTeam(teamNames[0]);
 		}
 
-		// Lock down to dispatcher-only (tool already registered at top level)
-		pi.setActiveTools(["dispatch_agent"]);
+		// Enable hybrid delegation: both dispatch_agent and subagent tools
+		pi.setActiveTools(["dispatch_agent", "subagent"]);
 
-		_ctx.ui.setStatus("agent-team", `Team: ${activeTeamName} (${agentStates.size})`);
+		_ctx.ui.setStatus("agent-team", `Team: ${activeTeamName} (${agentStates.size}) | Hybrid: ON`);
 		const members = Array.from(agentStates.values()).map(s => displayName(s.def.name)).join(", ");
 		_ctx.ui.notify(
 			`Team: ${activeTeamName} (${members})\n` +
-			`Team sets loaded from: .pi/agents/teams.yaml\n\n` +
+			`Hybrid orchestration enabled (dispatch_agent + subagent)\n\n` +
 			`/agents-team          Select a team\n` +
 			`/agents-list          List active agents and status\n` +
 			`/agents-grid <1-6>    Set grid column count`,
