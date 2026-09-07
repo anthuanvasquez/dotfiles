@@ -7,6 +7,8 @@ export PATH="$HOME/bin:$HOME/.local/bin:$DOTFILES/bin:/usr/local/bin:/usr/bin:/b
 # Homebrew (macOS)
 if [[ -d "/opt/homebrew/bin" ]]; then
     export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+elif [[ -d "/usr/local/bin" ]]; then
+    export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 fi
 
 # Programming Languages
@@ -26,11 +28,6 @@ fi
 # LLVM & Others
 if [[ -d "/opt/homebrew/opt/llvm/bin" ]]; then
     export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
-fi
-
-# Antigravity (Local bin)
-if [[ -d "$HOME/.antigravity/antigravity/bin" ]]; then
-    export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
 fi
 
 # Export unique paths only
