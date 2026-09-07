@@ -4,7 +4,6 @@
 set -euo pipefail
 
 # Resolve the dotfiles root from any script located under it.
-# Usage: dotfiles_root
 export DOTFILES_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 # Print helpers
@@ -19,21 +18,6 @@ require() {
     error "$1 is required but not installed"
     return 1
   fi
-}
-
-# Detect the OS family.
-detect_os() {
-  case "$(uname -s)" in
-    Darwin) echo "macos" ;;
-    Linux)
-      if grep -qE "(Microsoft|WSL)" /proc/version 2>/dev/null; then
-        echo "wsl"
-      else
-        echo "linux"
-      fi
-      ;;
-    *) echo "unknown" ;;
-  esac
 }
 
 # Ask for confirmation.
