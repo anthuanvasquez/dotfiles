@@ -1,11 +1,10 @@
 # Taps
 tap "oven-sh/bun"
-tap "jandedobbeleer/oh-my-posh"
 tap "gentleman-programming/tap"
 
 # Formulas
 brew "zsh"
-brew "jandedobbeleer/oh-my-posh/oh-my-posh"
+brew "oh-my-posh"
 brew "atuin"
 brew "zoxide"
 brew "fzf"
