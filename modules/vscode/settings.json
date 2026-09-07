@@ -187,7 +187,5 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "database-client.autoSync": true,
-    "http.systemCertificatesNode": true,
-    "geminicodeassist.project": "trusty-kite-kn78f",
-    "chat.disableAIFeatures": true
+    "http.systemCertificatesNode": true
 }

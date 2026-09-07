@@ -70,8 +70,5 @@ The following scripts are automatically available in your terminal:
 | `setup-project` | AI-Ready project scaffolding. | `<project-name>` |
 | `update` | Global machine update (Dotfiles, Homebrew, Node packages). | *N/A* |
 
----
-Maintained by [Anthuan Vasquez](https://github.com/anthuanvasquez)
-
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
