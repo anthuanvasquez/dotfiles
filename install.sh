@@ -82,6 +82,12 @@ elif [[ -x /usr/local/bin/brew ]]; then
   eval "$(/usr/local/bin/brew shellenv)"
 fi
 
+# Trust third-party taps if required by Homebrew
+if brew help trust &>/dev/null; then
+  brew tap gentleman-programming/tap 2>/dev/null || true
+  brew trust gentleman-programming/tap 2>/dev/null || true
+fi
+
 info "Installing dependencies from Brewfile..."
 brew bundle --file="$DOTFILES_ROOT/Brewfile"
 

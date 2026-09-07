@@ -1,5 +1,4 @@
 # Taps
-tap "oven-sh/bun"
 tap "gentleman-programming/tap"
 
 # Formulas
@@ -19,7 +18,7 @@ brew "tldr"
 brew "gh"
 brew "tree"
 brew "fnm"
-brew "oven-sh/bun/bun"
+brew "bun"
 brew "gentleman-programming/tap/engram"
 brew "pyenv"
 brew "rclone"
