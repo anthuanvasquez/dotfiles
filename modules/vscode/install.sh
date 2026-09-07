@@ -9,6 +9,12 @@ source "$DOTFILES_ROOT/lib/utils.sh"
 
 info "Setting up VS Code extensions..."
 
+VSCODE_USER_DIR="$HOME/Library/Application Support/Code/User"
+if [[ -d "$VSCODE_USER_DIR" ]]; then
+  info "Applying VS Code settings..."
+  cp "$DOTFILES_ROOT/modules/vscode/settings.json" "$VSCODE_USER_DIR/settings.json"
+fi
+
 if ! command -v code &>/dev/null; then
   warn "'code' CLI tool not found. Skipping VS Code extension setup."
   exit 0
@@ -43,8 +49,6 @@ extensions=(
   vue.volar
   wakatime.vscode-wakatime
   redhat.vscode-yaml
-  google.geminicodeassist
-  google.gemini-cli-vscode-ide-companion
 )
 
 for extension in "${extensions[@]}"; do

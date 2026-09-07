@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # modules/git/install.sh: Git LFS setup.
-# Static config lives in home/.gitconfig (symlinked).
+# Static config lives in config/git/.gitconfig (included via ~/.gitconfig).
 
 set -euo pipefail
 
