@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Uso:
+#   ./gen-ssh-key.sh                      -> pide el email interactivamente
+#   ./gen-ssh-key.sh -e correo@ejemplo.com
+#   ./gen-ssh-key.sh -e correo@ejemplo.com -p "mi_passphrase"
+#   ./gen-ssh-key.sh -e correo@ejemplo.com -p "" -f ~/.ssh/id_ed25519_trabajo -t ed25519
+
+EMAIL=""
+PASSPHRASE=""
+KEY_PATH="$HOME/.ssh/id_ed25519"
+KEY_TYPE="ed25519"
+
+usage() {
+  echo "Uso: $0 [-e email] [-p passphrase] [-f ruta_clave] [-t tipo]"
+  echo "  -e  Email para el comentario de la clave"
+  echo "  -p  Passphrase (usa '' para no poner ninguna)"
+  echo "  -f  Ruta de salida de la clave (default: $KEY_PATH)"
+  echo "  -t  Tipo de clave: ed25519 | rsa (default: ed25519)"
+  exit 1
+}
+
+while getopts "e:p:f:t:h" opt; do
+  case "$opt" in
+    e) EMAIL="$OPTARG" ;;
+    p) PASSPHRASE="$OPTARG" ;;
+    f) KEY_PATH="$OPTARG" ;;
+    t) KEY_TYPE="$OPTARG" ;;
+    h) usage ;;
+    *) usage ;;
+  esac
+done
+
+# Si no se pasó email por flag, se pide interactivamente
+if [ -z "$EMAIL" ]; then
+  read -rp "Introduce tu email: " EMAIL
+fi
+
+if [ -z "$EMAIL" ]; then
+  echo "El email no puede estar vacío." >&2
+  exit 1
+fi
+
+mkdir -p "$(dirname "$KEY_PATH")"
+chmod 700 "$(dirname "$KEY_PATH")"
+
+if [ -f "$KEY_PATH" ]; then
+  echo "Ya existe una clave en $KEY_PATH. Abortando para no sobrescribir." >&2
+  exit 1
+fi
+
+# Si no se pasó -p, se pedirá la passphrase de forma interactiva (ssh-keygen la solicita solo)
+if [ "$PASSPHRASE" != "" ] || [ "$#" -gt 0 ] && printf '%s\n' "$@" | grep -q -- '-p'; then
+  ssh-keygen -t "$KEY_TYPE" -C "$EMAIL" -f "$KEY_PATH" -N "$PASSPHRASE"
+else
+  ssh-keygen -t "$KEY_TYPE" -C "$EMAIL" -f "$KEY_PATH"
+fi
+
+echo
+echo "Clave generada:"
+echo "  Privada: $KEY_PATH"
+echo "  Pública: $KEY_PATH.pub"
+echo
+echo "Clave pública:"
+cat "$KEY_PATH.pub"

@@ -10,7 +10,7 @@ DELETED="gdrive:BACKUPS/_deleted/$DATE"
 echo "===== Backup started: $DATE =====" | tee -a "$LOGFILE"
 
 rclone sync "$SOURCE" "$DEST" \
-  --exclude-from "$HOME/.rcloneignore" \
+  --exclude-from "${DOTFILES:-$HOME/Sites/dotfiles}/config/rclone/.rcloneignore" \
   --backup-dir "$DELETED" \
   --progress \
   --transfers=4 \

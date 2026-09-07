@@ -3,7 +3,7 @@
 
 set -euo pipefail
 
-DOTFILES_DIR="${DOTFILES:-$HOME/dotfiles}"
+DOTFILES_DIR="${DOTFILES:-$HOME/Sites/dotfiles}"
 
 echo "🔄 Updating dotfiles environment..."
 

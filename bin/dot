@@ -3,7 +3,7 @@
 
 set -euo pipefail
 
-DOTFILES_DIR="${DOTFILES:-$HOME/dotfiles}"
+DOTFILES_DIR="${DOTFILES:-$HOME/Sites/dotfiles}"
 
 usage() {
   echo "Usage: dot <command>"
@@ -28,7 +28,7 @@ case "${1:-}" in
     echo "✅ Zsh configuration reloaded."
     ;;
   install)
-    cd "$DOTFILES_DIR" && ./install
+    cd "$DOTFILES_DIR" && ./install.sh
     ;;
   *)
     usage
