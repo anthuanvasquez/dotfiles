@@ -20,42 +20,26 @@ jobs:
         uses: Homebrew/actions/setup-homebrew@master
 
       - name: Grant execution permissions
-        run: chmod +x setup install scripts/* os/* bin/* modules/*/install.sh lib/*.sh
+        run: chmod +x install.sh install bin/* modules/*/install.sh lib/*.sh
 
-      - name: Install Homebrew packages
+      - name: Run Dotfiles Installer
         run: |
-          echo "📦 Installing Brewfile dependencies..."
-          brew bundle --file=Brewfile
-
-      - name: Run Symlinks
-        run: |
-          echo "🔗 Creating symlinks..."
-          ./scripts/link-dotfiles
-
-      - name: Apply macOS settings
-        run: |
-          echo "⚙️ Applying macOS settings (CI-safe)..."
-          ./os/setup-macos.sh
-
-      - name: Run Module Installers
-        run: |
-          echo "🧩 Running module installers..."
-          for module_script in modules/*/install.sh; do
-            module_name="$(basename "$(dirname "$module_script")")"
-            echo "--- [$module_name] ---"
-            bash "$module_script" || echo "⚠️ $module_name skipped (expected in CI)"
-          done
+          echo "🚀 Running ./install.sh..."
+          ./install.sh
 
       - name: Run Environment Diagnostics
         run: |
           echo "--- Running bin/doctor ---"
           ./bin/doctor
 
-      - name: Verify Key Artifacts
+      - name: Verify Configurations (Zero Symlinks)
         run: |
-          echo "--- Verifying Symlinks ---"
-          [ -L "$HOME/.zshrc" ] && echo "✅ .zshrc symlink OK" || exit 1
-          [ -L "$HOME/.gitconfig" ] && echo "✅ .gitconfig symlink OK" || exit 1
+          echo "--- Verifying .zshrc ---"
+          grep -q "Dotfiles loader" "$HOME/.zshrc" && echo "✅ .zshrc loader configured" || exit 1
+
+          echo "--- Verifying Git Include ---"
+          git config --global --get include.path | grep -q "config/git/.gitconfig" && echo "✅ git include.path OK" || exit 1
+          git config --global --get core.excludesfile | grep -q "config/git/.gitignore_global" && echo "✅ git core.excludesfile OK" || exit 1
 
           echo "--- Verifying CLI Tools ---"
           command -v eza && echo "✅ eza OK"
@@ -72,4 +56,4 @@ jobs:
 
           echo "--- Verifying bin scripts ---"
           ./bin/dev --help || true
-          ./bin/dot --help || true
+          ./bin/dot || true
