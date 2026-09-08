@@ -1,3 +1,7 @@
+# ------------------------------------------------------------------------------
+# ls colors
+# ------------------------------------------------------------------------------
+
 # Detect which `ls` flavor is in use.
 if ls --color > /dev/null 2>&1; then # GNU `ls`
   colorflag="--color"
@@ -40,8 +44,9 @@ alias gp="git push"
 alias gcm="git commit -m"
 alias gpl="git pull"
 alias gaa="git add ."
-alias gcom="git checkout master"
+alias gch="git checkout master"
 alias grh="git reset --hard && git clean -df"
+alias gtoday="git log --since=midnight --oneline"
 
 # ------------------------------------------------------------------------------
 # Docker
@@ -51,12 +56,24 @@ alias dockrmi='docker rmi $(docker images -q)'
 alias dockrmc='docker rm $(docker ps -a -q)'
 alias dockcmp='docker-compose'
 
+# -----------------------------------------------------------------------------
+# Agents
+#
+# OTEL_SERVICE_NAME and OTEL_RESOURCE_ATTRIBUTES are used to provide
+# context to the agents for telemetry and monitoring purposes.
+# -----------------------------------------------------------------------------
+
+alias copilot='OTEL_SERVICE_NAME=copilot-cli OTEL_RESOURCE_ATTRIBUTES="agent.vendor=github,agent.name=copilot" copilot'
+alias agy='OTEL_SERVICE_NAME=antigravity-cli OTEL_RESOURCE_ATTRIBUTES="agent.vendor=google,agent.name=antigravity" agy'
+
 # ------------------------------------------------------------------------------
 # Helpers
 # ------------------------------------------------------------------------------
 
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 alias brewup="brew update && brew upgrade && brew doctor && brew cleanup"
 alias npmup="npm i -g npm@latest"
 alias pnpmup="corepack prepare pnpm@latest --activate"
-alias yarnup="corepack prepare yarn@stable --activate"
 alias devclean="npm cache clean --force && pnpm store prune && rm -rf ~/.cache/*"
+alias zshconfig="code ~/.zshrc"
+alias ohmyzsh="code ~/.oh-my-zsh"
