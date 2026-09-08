@@ -8,6 +8,3 @@ export LC_ALL="en_US.UTF-8"
 
 # Tool-specific environment
 export GPG_TTY=$(tty)
-
-# Ensure Antigravity/AI tools have necessary context if needed
-# export ANTIGRAVITY_SKILLS="$DOTFILES/modules/antigravity/skills.txt"
