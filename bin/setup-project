@@ -14,7 +14,7 @@ fi
 echo "🚀 Setting up AI-Ready project: $PROJECT_NAME"
 
 # 1. Create directory structure
-mkdir -p "$PROJECT_NAME"/{src,tests,docs,bin,.gemini/skills}
+mkdir -p "$PROJECT_NAME"/{src,tests,docs,bin}
 cd "$PROJECT_NAME"
 
 # 2. Initialize Git
