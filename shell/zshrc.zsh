@@ -32,3 +32,7 @@ command -v fzf &>/dev/null && source <(fzf --zsh)
 command -v atuin &>/dev/null && eval "$(atuin init zsh)"
 command -v pyenv &>/dev/null && eval "$(pyenv init - zsh)"
 command -v rbenv &>/dev/null && eval "$(rbenv init -)"
+
+# 6. 1Password CLI completions & shell plugins (guarded, zero overhead)
+[[ -f "$HOME/.config/op/completion.zsh" ]] && source "$HOME/.config/op/completion.zsh"
+[[ -f "$HOME/.config/op/plugins.sh" ]] && source "$HOME/.config/op/plugins.sh"
