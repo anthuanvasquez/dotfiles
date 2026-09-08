@@ -2,10 +2,10 @@
 set -e
 
 DATE=$(date +%Y-%m-%d_%H-%M-%S)
-LOGFILE="$HOME/bin/backup-$DATE.log"
+LOGFILE="$HOME/bin/logs/backup-$DATE.log"
 SOURCE="$HOME/Sites"
-DEST="gdrive:BACKUPS/Sites"
-DELETED="gdrive:BACKUPS/_deleted/$DATE"
+DEST="gdrive:[98] BACKUPS/Macbook/Sites"
+DELETED="gdrive:[98] BACKUPS/Macbook/_deleted/$DATE"
 
 echo "===== Backup started: $DATE =====" | tee -a "$LOGFILE"
 
