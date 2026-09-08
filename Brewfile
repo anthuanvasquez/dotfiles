@@ -1,5 +1,7 @@
 # Taps
 tap "gentleman-programming/tap"
+tap "deskflow/tap"
+
 
 # Formulas
 brew "zsh"
@@ -19,21 +21,24 @@ brew "gh"
 brew "tree"
 brew "fnm"
 brew "bun"
+brew "go"
 brew "gentleman-programming/tap/engram"
 brew "pyenv"
+brew "rbenv"
 brew "rclone"
 brew "git-lfs"
 brew "git-delta"
 
 # Casks
+cask "docker-desktop"
+cask "visual-studio-code"
+cask "stablyai/orca/orca"
 cask "warp"
+cask "bruno"
 cask "google-chrome"
 cask "1password"
 cask "1password-cli"
-cask "bruno"
 cask "raycast"
 cask "wakatime"
-cask "visual-studio-code"
-cask "rectangle"
 cask "discord"
 cask "spotify"
