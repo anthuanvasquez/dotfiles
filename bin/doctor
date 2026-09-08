@@ -47,7 +47,6 @@ check_tool "rustc" "Rust compiler"
 
 echo "--- Cloud & Infrastructure ---"
 check_tool "docker" "Containerization"
-check_tool "kubectl" "Kubernetes control"
 check_tool "gh" "GitHub CLI"
 
 echo "--- System Health ---"
