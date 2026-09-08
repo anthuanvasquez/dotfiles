@@ -110,11 +110,6 @@
             }
         }
     },
-    "stylelint.enable": true,
-    "stylelint.validate": [
-        "css",
-        "scss"
-    ],
     "scss.validate": false,
     "less.validate": false,
     "css.validate": false,
@@ -165,14 +160,8 @@
     "[html, vue, javascript, typescript, typescriptreact]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "[scss, css]": {
-        "editor.defaultFormatter": "stylelint.vscode-stylelint"
-    },
-    "[jsonc]": {
+    "[jsonc, handlebars]": {
         "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    "[handlebars]": {
-        "editor.defaultFormatter": "vscode.html-language-features"
     },
     "indentRainbow.colors": [
         "rgba(29, 78, 137,0.15)",
@@ -183,9 +172,6 @@
         "rgba(247, 146, 86,0.1)",
         "rgba(247, 146, 86,0.05)"
     ],
-    "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
     "database-client.autoSync": true,
     "http.systemCertificatesNode": true
 }
