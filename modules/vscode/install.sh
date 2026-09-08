@@ -4,6 +4,7 @@
 set -euo pipefail
 
 DOTFILES_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+
 # shellcheck source=lib/utils.sh
 source "$DOTFILES_ROOT/lib/utils.sh"
 
@@ -13,6 +14,8 @@ VSCODE_USER_DIR="$HOME/Library/Application Support/Code/User"
 if [[ -d "$VSCODE_USER_DIR" ]]; then
   info "Applying VS Code settings..."
   cp "$DOTFILES_ROOT/modules/vscode/settings.json" "$VSCODE_USER_DIR/settings.json"
+  cp "$DOTFILES_ROOT/modules/vscode/mcp.json" "$VSCODE_USER_DIR/mcp.json"
+  cp "$DOTFILES_ROOT/modules/vscode/keybindings.json" "$VSCODE_USER_DIR/keybindings.json"
 fi
 
 if ! command -v code &>/dev/null; then
