@@ -1,22 +1,4 @@
 {
-    "window.titleBarStyle": "native",
-    "workbench.fontAliasing": "auto",
-    "workbench.editor.enablePreview": true,
-    "workbench.editor.highlightModifiedTabs": true,
-    "workbench.startupEditor": "newUntitledFile",
-    "workbench.colorTheme": "Tokyo Night",
-    "workbench.sideBar.location": "right",
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.secondarySideBar.showLabels": false,
-    "workbench.colorCustomizations": {
-        "editor.lineHighlightBackground": "#102032",
-        "editorCursor.foreground": "#ffffff",
-        "terminalCursor.foreground": "#ffffff"
-    },
-    "terminal.integrated.fontSize": 14,
-    "terminal.integrated.macOptionIsMeta": true,
-    "terminal.integrated.defaultProfile.osx": "zsh",
-    "terminal.integrated.fontFamily": "FiraCode Nerd Font Mono",
     "editor.linkedEditing": true,
     "editor.stickyScroll.enabled": true,
     "editor.cursorSmoothCaretAnimation": "on",
@@ -45,10 +27,36 @@
         "source.fixAll.eslint": "never"
     },
     "editor.bracketPairColorization.enabled": true,
-    "editor.guides.bracketPairs": true,
+    "editor.guides.highlightActiveBracketPair": true,
+    "editor.guides.bracketPairs": "active",
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
     "editor.inlineSuggest.enabled": true,
     "editor.mouseWheelZoom": true,
     "editor.minimap.maxColumn": 30,
+    "window.titleBarStyle": "native",
+    "workbench.fontAliasing": "auto",
+    "workbench.editor.enablePreview": true,
+    "workbench.editor.highlightModifiedTabs": true,
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.colorTheme": "Tokyo Night",
+    "workbench.sideBar.location": "right",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.secondarySideBar.showLabels": false,
+    "workbench.colorCustomizations": {
+        "editor.lineHighlightBackground": "#102032",
+        "editorCursor.foreground": "#ffffff",
+        "terminalCursor.foreground": "#ffffff"
+    },
+    "workbench.editor.customLabels.patterns": {
+        "**/components/**": "${filename} 🧩",
+        "**/pages/**": "${filename} 📄",
+        "**/layouts/**": "${filename} 🗂️",
+        "**/services/**": "${filename} ⚙️"
+    },
+    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.macOptionIsMeta": true,
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.fontFamily": "FiraCode Nerd Font Mono",
     "explorer.confirmDragAndDrop": false,
     "explorer.decorations.badges": false,
     "explorer.openEditors.visible": 1,
@@ -57,19 +65,6 @@
     "files.trimFinalNewlines": true,
     "files.insertFinalNewline": true,
     "php.validate.run": "onSave",
-    "projectManager.groupList": true,
-    "projectManager.sortList": "Name",
-    "projectManager.git.baseFolders": [
-        "~/Sites"
-    ],
-    "projectManager.git.ignoredFolders": [
-        "node_modules",
-        "out",
-        "typings",
-        "test",
-        "fork*",
-        "wp"
-    ],
     "eslint.run": "onSave",
     "eslint.validate": [
         "javascript",
@@ -119,7 +114,6 @@
         "php",
         "javascript"
     ],
-    "githubPullRequests.pullBranch": "never",
     "git.confirmSync": false,
     "RainbowBrackets.depreciation-notice": false,
     "redhat.telemetry.enabled": false,
@@ -160,8 +154,11 @@
     "[html, vue, javascript, typescript, typescriptreact]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "[jsonc, handlebars]": {
+    "[jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[handlebars]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
     },
     "indentRainbow.colors": [
         "rgba(29, 78, 137,0.15)",
@@ -172,6 +169,39 @@
         "rgba(247, 146, 86,0.1)",
         "rgba(247, 146, 86,0.05)"
     ],
-    "database-client.autoSync": true,
-    "http.systemCertificatesNode": true
+    "http.systemCertificatesNode": true,
+    "github.copilot.enable": {
+        "markdown": true,
+        "plaintext": true
+    },
+    "github.copilot.chat.rateLimitAutoSwitchToAuto": true,
+    "github.copilot.chat.responsesApi.promptCacheKey.enabled": true,
+    "github.copilot.chat.otel.enabled": true,
+    "github.copilot.chat.otel.exporterType": "otlp-http",
+    "github.copilot.chat.otel.protocol": "http/protobuf",
+    "github.copilot.chat.otel.otlpEndpoint": "http://localhost:4318",
+    "github.copilot.chat.otel.captureContent": false,
+    "github.copilot.chat.otel.serviceName": "vscode-copilot",
+    "github.copilot.chat.otel.resourceAttributes": {
+        "agent.type": "vscode",
+        "client.name": "copilot-chat"
+    },
+    "chat.mcp.gallery.enabled": true,
+    "workbench.editor.empty.hint": "hidden",
+    "todo-tree.ripgrep.ripgrep": "/opt/homebrew/bin/rg",
+    "workbench.experimental.modernUI": true,
+    "gitlens.launchpad.indicator.enabled": false,
+    "chat.viewSessions.orientation": "stacked",
+    "chat.sessionSync.enabled": true,
+    "chat.viewProgressBadge.enabled": true,
+    "chat.subagents.allowInvocationsFromSubagents": true,
+    "chat.promptFilesLocations": {
+        "~/.copilot/prompts": true
+    },
+    "remote.extensionKind": {
+        "pub.name": [
+            "ui"
+        ]
+    },
+    "telemetry.telemetryLevel": "off"
 }
