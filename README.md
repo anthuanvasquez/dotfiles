@@ -29,7 +29,6 @@ If you have already cloned the repository:
 ```bash
 ./install.sh
 ```
-*(or simply `./install`)*
 
 ## Installation Order
 
