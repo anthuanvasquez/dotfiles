@@ -107,3 +107,21 @@ trashy() {
     pnpm install
   fi
 }
+
+newrepo() {
+  local name="$1"
+
+  mkdir "$name" &&
+  cd "$name" &&
+  git init -b main &&
+  echo "# $name" > README.md &&
+  echo ".DS_Store" > .gitignore &&
+  echo "MIT License" > LICENSE &&
+  git add . &&
+  git commit -m "chore: initial commit" &&
+  gh repo create "$name" \
+    --private \
+    --source=. \
+    --remote=origin \
+    --push
+}
