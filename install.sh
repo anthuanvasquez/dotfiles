@@ -86,6 +86,9 @@ fi
 if brew help trust &>/dev/null; then
   brew tap gentleman-programming/tap 2>/dev/null || true
   brew trust gentleman-programming/tap 2>/dev/null || true
+
+  brew tap deskflow/tap 2>/dev/null || true
+  brew trust deskflow/tap 2>/dev/null || true
 fi
 
 info "Installing dependencies from Brewfile..."
@@ -144,8 +147,8 @@ done
 # ------------------------------------------------------------------------------
 # 7. Permissions Check
 # ------------------------------------------------------------------------------
-chmod +x "$DOTFILES_ROOT/install.sh" "$DOTFILES_ROOT/install" 2>/dev/null || true
+chmod +x "$DOTFILES_ROOT/install.sh" 2>/dev/null || true
 chmod +x "$DOTFILES_ROOT/bin"/* 2>/dev/null || true
 chmod +x "$DOTFILES_ROOT/modules"/*/install.sh 2>/dev/null || true
 
-success "All done! Todo nítido. Open a new terminal or run 'dot reload' to enjoy your setup."
+success "All done!. Open a new terminal or run 'dot reload' to enjoy your setup."
