@@ -28,6 +28,7 @@ fi
 # 5. Tool Initializations (guarded — only init if installed)
 command -v fnm &>/dev/null && eval "$(fnm env --use-on-cd --shell zsh)"
 command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
+command -v fzf &>/dev/null && source <(fzf --zsh)
 command -v atuin &>/dev/null && eval "$(atuin init zsh)"
 command -v pyenv &>/dev/null && eval "$(pyenv init - zsh)"
-command -v fzf &>/dev/null && eval "$(fzf --zsh)"
+command -v rbenv &>/dev/null && eval "$(rbenv init -)"
