@@ -20,7 +20,7 @@ jobs:
         uses: Homebrew/actions/setup-homebrew@master
 
       - name: Grant execution permissions
-        run: chmod +x install.sh install bin/* modules/*/install.sh lib/*.sh
+        run: chmod +x install.sh bin/* modules/*/install.sh lib/*.sh
 
       - name: Run Dotfiles Installer
         run: |
