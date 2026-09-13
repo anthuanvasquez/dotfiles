@@ -21,6 +21,7 @@
   },
   "blocks": [
     {
+      "type": "prompt",
       "alignment": "left",
       "segments": [
         {
@@ -61,10 +62,10 @@
           "foreground": "p:terminal-red",
           "template": " \uf00d"
         }
-      ],
-      "type": "prompt"
+      ]
     },
     {
+      "type": "prompt",
       "alignment": "right",
       "overflow": "hide",
       "segments": [
@@ -104,10 +105,10 @@
           "foreground": "p:light-sky-blue",
           "template": "\uFCD1 {{ .Full}}"
         }
-      ],
-      "type": "prompt"
+      ]
     },
     {
+      "type": "prompt",
       "alignment": "left",
       "newline": true,
       "segments": [
@@ -117,8 +118,7 @@
           "template": "\u25b6",
           "type": "text"
         }
-      ],
-      "type": "prompt"
+      ]
     }
   ],
   "secondary_prompt": {
