@@ -8,3 +8,6 @@ export LC_ALL="en_US.UTF-8"
 
 # Tool-specific environment
 export GPG_TTY=$(tty)
+
+# Load local environment variables if the file exists
+[[ -f "$HOME/.env.local" ]] && source "$HOME/.env.local"

@@ -28,9 +28,6 @@ alias cat='bat'
 alias grep='rg'
 alias find='fd'
 alias cd='z'
-alias help='tldr'
-alias zgit='lazygit'
-alias zdocker='lazydocker'
 
 # ------------------------------------------------------------------------------
 # Git
@@ -75,5 +72,9 @@ alias brewup="brew update && brew upgrade && brew doctor && brew cleanup"
 alias npmup="npm i -g npm@latest"
 alias pnpmup="corepack prepare pnpm@latest --activate"
 alias devclean="npm cache clean --force && pnpm store prune && rm -rf ~/.cache/*"
+alias zgit='lazygit'
+alias zdocker='lazydocker'
+alias openv="op run --env-file=.env --"
 alias zshconfig="code ~/.zshrc"
-alias ohmyzsh="code ~/.oh-my-zsh"
+alias copilotConfig="code ~/.copilot/settings.json"
+alias antigravityConfig="code ~/.gemini/antigravity-cli/settings.json"

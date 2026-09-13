@@ -15,7 +15,10 @@ source "$DOTFILES/shell/aliases.zsh"
 source "$DOTFILES/shell/functions.zsh"
 source "$DOTFILES/shell/macos_aliases.zsh"
 
-# 4. Prompt / Theme (Oh-My-Posh)
+# 4. Native Zsh Completion System
+autoload -Uz compinit && compinit
+
+# 5. Prompt / Theme (Oh-My-Posh)
 if command -v oh-my-posh &>/dev/null; then
   POSH_THEME="${POSH_THEME:-$DOTFILES/config/oh-my-posh/themes/tokyonight_storm.omp.json}"
   if [[ -f "$POSH_THEME" ]]; then
@@ -25,7 +28,7 @@ if command -v oh-my-posh &>/dev/null; then
   fi
 fi
 
-# 5. Tool Initializations (guarded — only init if installed)
+# 6. Tool Initializations (guarded — only init if installed)
 command -v fnm &>/dev/null && eval "$(fnm env --use-on-cd --shell zsh)"
 command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
 command -v fzf &>/dev/null && source <(fzf --zsh)
@@ -33,6 +36,11 @@ command -v atuin &>/dev/null && eval "$(atuin init zsh)"
 command -v pyenv &>/dev/null && eval "$(pyenv init - zsh)"
 command -v rbenv &>/dev/null && eval "$(rbenv init -)"
 
-# 6. 1Password CLI completions & shell plugins (guarded, zero overhead)
+# 7. 1Password CLI completions & shell plugins (guarded, zero overhead)
 [[ -f "$HOME/.config/op/completion.zsh" ]] && source "$HOME/.config/op/completion.zsh"
 [[ -f "$HOME/.config/op/plugins.sh" ]] && source "$HOME/.config/op/plugins.sh"
+
+# 8. Plugins (Homebrew) — syntax-highlighting DEBE ir al final
+BREW_PREFIX="${HOMEBREW_PREFIX:-/opt/homebrew}"
+[[ -f "$BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]] && source "$BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+[[ -f "$BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]] && source "$BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
