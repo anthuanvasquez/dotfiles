@@ -1,0 +1,6 @@
+{
+  "statusLine": {
+    "type": "command",
+    "command": "oh-my-posh antigravity --config ~/Sites/dotfiles/config/oh-my-posh/themes/tokyonight_storm_agents.omp.json"
+  }
+}
