@@ -71,10 +71,10 @@ alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 alias brewup="brew update && brew upgrade && brew doctor && brew cleanup"
 alias npmup="npm i -g npm@latest"
 alias pnpmup="corepack prepare pnpm@latest --activate"
-alias devclean="npm cache clean --force && pnpm store prune && rm -rf ~/.cache/*"
+alias pkgclean="npm cache clean --force && pnpm store prune && rm -rf ~/.cache/*"
 alias zgit='lazygit'
 alias zdocker='lazydocker'
 alias openv="op run --env-file=.env --"
 alias zshconfig="code ~/.zshrc"
 alias copilotConfig="code ~/.copilot/settings.json"
-alias antigravityConfig="code ~/.gemini/antigravity-cli/settings.json"
+alias agyConfig="code ~/.gemini/antigravity-cli/settings.json"
