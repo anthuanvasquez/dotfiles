@@ -124,6 +124,12 @@ git config --global include.path "$DOTFILES_ROOT/config/git/.gitconfig"
 git config --global core.excludesfile "$DOTFILES_ROOT/config/git/.gitignore_global"
 success "Git configured natively (include.path + core.excludesfile)."
 
+# 4.3 Eza: Theme configuration
+info "Configuring Eza..."
+mkdir -p "$HOME/.config/eza"
+cp "$DOTFILES_ROOT/config/eza/theme.yml" "$HOME/.config/eza/theme.yml"
+success "Eza theme configured."
+
 # ------------------------------------------------------------------------------
 # 5. Apply macOS System Defaults
 # ------------------------------------------------------------------------------
