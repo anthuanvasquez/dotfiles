@@ -7,7 +7,7 @@ Personal, automated, and modular configuration designed exclusively for **macOS*
 | Path | Purpose |
 | :--- | :--- |
 | `bin/` | Personal CLI tools automatically added to `$PATH`. |
-| `config/` | Static configuration files (Git configs, Oh-My-Posh themes, Rclone ignore). |
+| `config/` | Static configuration files (Git configs, Eza theme, Oh-My-Posh themes, Rclone ignore). |
 | `lib/utils.sh` | Shared shell helper functions (`info`, `warn`, `error`, `success`). |
 | `modules/` | Modular runtime and app configurators (`git`, `macos`, `node`, `python`, `rclone`, `vscode`). |
 | `shell/` | Modular Zsh configuration (`path.zsh`, `env.zsh`, `aliases.zsh`, `functions.zsh`, `macos_aliases.zsh`, `zshrc.zsh`). |
@@ -50,6 +50,7 @@ Rather than maintaining symbolic links that can break or conflict:
   [include]
       path = /path/to/dotfiles/config/git/.gitconfig
   ```
+- **Eza**: Native environment variable `$EZA_CONFIG_DIR` pointing to the repository, with standard XDG fallback sync.
 - **VS Code**: `settings.json` is synced cleanly to the User configuration folder.
 
 ## Personal Binaries (`bin/`)
