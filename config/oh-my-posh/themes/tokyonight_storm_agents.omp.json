@@ -72,9 +72,8 @@
         },
         {
           "type": "copilot_cli",
-          "style": "diamond",
-          "leading_diamond": "",
-          "trailing_diamond": "",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
           "foreground": "#111111",
           "background": "#fee898",
           "template": "  {{ .Model.DisplayName }}  {{ .TokenGauge }} "
