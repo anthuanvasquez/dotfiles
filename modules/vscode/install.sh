@@ -24,34 +24,49 @@ if ! command -v code &>/dev/null; then
 fi
 
 extensions=(
-  alefragnani.project-manager
+  aaron-bond.better-comments
+  adpyke.codesnap
+  alefragnani.bookmarks
+  anthuanvasquez.vision-night
+  astro-build.astro-vscode
   bradlc.vscode-tailwindcss
   christian-kohler.npm-intellisense
   christian-kohler.path-intellisense
+  codeandstuff.package-json-upgrade
   dbaeumer.vscode-eslint
   eamodio.gitlens
   editorconfig.editorconfig
-  esbenp.prettier-vscode
-  formulahendry.auto-rename-tag
-  github.vscode-github-actions
-  gruntfuggly.todo-tree
-  mikestead.dotenv
-  unifiedjs.vscode-mdx
-  vscode-icons-team.vscode-icons
-  yoavbls.pretty-ts-errors
   enkia.tokyo-night
-  1password.op-vscode
-  astro-build.astro-vscode
-  joshbolduc.commitlint
-  vivaxy.vscode-conventional-commits
-  dsznajder.es7-react-js-snippets
-  oderwat.indent-rainbow
+  esbenp.prettier-vscode
+  esdete.tailwind-rainbow
   evondev.indent-rainbow-palettes
-  codeandstuff.package-json-upgrade
-  tal7aouy.rainbow-bracket
+  formulahendry.auto-close-tag
+  formulahendry.auto-rename-tag
+  gruntfuggly.todo-tree
+  igorsbitnev.error-gutters
+  jeremyljackson.vs-docblock
+  joshbolduc.commitlint
+  kamikillerto.vscode-colorize
+  mikestead.dotenv
+  ms-vscode-remote.remote-containers
+  ms-vscode-remote.remote-ssh
+  ms-vscode-remote.remote-ssh-edit
+  ms-vscode.live-server
+  ms-vscode.remote-explorer
+  oderwat.indent-rainbow
+  ollama.ollama
+  pkief.material-icon-theme
+  prisma.prisma
+  redhat.vscode-yaml
+  usernamehw.errorlens
+  vincaslt.highlight-matching-tag
+  vivaxy.vscode-conventional-commits
   vue.volar
   wakatime.vscode-wakatime
-  redhat.vscode-yaml
+  wayou.vscode-todo-highlight
+  wix.vscode-import-cost
+  wmaurer.change-case
+  yoavbls.pretty-ts-errors
 )
 
 for extension in "${extensions[@]}"; do
