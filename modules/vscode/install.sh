@@ -70,7 +70,7 @@ extensions=(
 )
 
 for extension in "${extensions[@]}"; do
-  code --install-extension "$extension" --force
+  code --install-extension "$extension" --force || warn "Could not install extension: $extension (skipping)"
 done
 
 success "VS Code extensions installed successfully!"
