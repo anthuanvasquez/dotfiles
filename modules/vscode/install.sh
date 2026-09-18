@@ -24,6 +24,7 @@ if ! command -v code &>/dev/null; then
 fi
 
 extensions=(
+  1password.op-vscode
   aaron-bond.better-comments
   adpyke.codesnap
   alefragnani.bookmarks
