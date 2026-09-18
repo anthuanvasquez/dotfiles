@@ -1,9 +1,21 @@
+# ==============================================================================
+# Dotfiles Brewfile - macOS Environment Manifest
+#
+# Usage:
+#   brew bundle                  # Install / sync all dependencies
+#   brew bundle check            # Verify installation state
+#   brew bundle cleanup --force  # Remove unlisted packages
+# ==============================================================================
+
 # Taps
+# -----------------------------------------------
+
 tap "gentleman-programming/tap"
 tap "deskflow/tap"
 
-
 # Formulas
+# -----------------------------------------------
+
 brew "zsh"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
@@ -25,29 +37,47 @@ brew "bun"
 brew "go"
 brew "pyenv"
 brew "rbenv"
-brew "gentleman-programming/tap/engram"
 brew "rclone"
+brew "deskflow"
 brew "git-lfs"
 brew "git-delta"
+brew "gentleman-programming/tap/engram"
+brew "macos-fuse-t/homebrew-cask/fuse-t"
 
 # Casks
+# -----------------------------------------------
+
+# Development Tools
 cask "docker-desktop"
 cask "visual-studio-code"
-cask "copilot-cli"
+cask "warp"
+cask "bruno"
 cask "github"
+cask "wakatime"
+
+# AI Tools
+cask "copilot-cli"
 cask "github-copilot-app"
 cask "ollama-app"
 cask "stablyai/orca/orca"
-cask "warp"
-cask "bruno"
-cask "google-chrome"
-cask "1password"
-cask "1password-cli"
-cask "tailscale-app"
+
+# Productivity & Knowledge
 cask "raycast"
 cask "calibre"
 cask "obsidian"
 cask "notion"
-cask "wakatime"
+cask "thunderbird"
+
+# Browsers
+cask "google-chrome"
+
+# Communication & Media
 cask "discord"
 cask "spotify"
+
+# Security & Network
+cask "1password"
+cask "1password-cli"
+cask "tailscale-app"
+cask "betterleaks"
+cask "veracrypt-fuse-t"
