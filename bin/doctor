@@ -42,6 +42,8 @@ check_tool "fnm" "Fast Node Manager"
 check_tool "node" "Node.js"
 check_tool "pnpm" "Fast NPM alternative"
 check_tool "python" "Python interpreter"
+check_tool "rbenv" "Ruby version manager"
+check_tool "ruby" "Ruby interpreter"
 check_tool "go" "Go language"
 check_tool "rustc" "Rust compiler"
 
