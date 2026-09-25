@@ -55,7 +55,6 @@ cask "wakatime"
 
 # AI Tools
 cask "copilot-cli"
-cask "github-copilot-app"
 cask "ollama-app"
 cask "stablyai/orca/orca"
 
