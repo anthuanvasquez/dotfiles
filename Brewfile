@@ -10,7 +10,6 @@
 # Taps
 # -----------------------------------------------
 
-tap "gentleman-programming/tap"
 tap "deskflow/tap"
 
 # Formulas
@@ -41,7 +40,6 @@ brew "rclone"
 brew "deskflow"
 brew "git-lfs"
 brew "git-delta"
-brew "gentleman-programming/tap/engram"
 brew "macos-fuse-t/homebrew-cask/fuse-t"
 
 # Casks
