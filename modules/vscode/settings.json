@@ -1,16 +1,16 @@
 {
     "editor.linkedEditing": true,
     "editor.stickyScroll.enabled": true,
-    "editor.cursorSmoothCaretAnimation": "on",
-    "editor.fontFamily": "FiraCode Nerd Font",
+    "editor.fontFamily": "JetBrainsMono Nerd Font Mono",
     "editor.fontSize": 20,
-    "editor.fontWeight": "600",
+    "editor.fontWeight": "450",
     "editor.fontLigatures": true,
-    "editor.lineHeight": 24,
+    "editor.lineHeight": 26,
     "editor.letterSpacing": 0.5,
     "editor.cursorStyle": "block",
     "editor.cursorWidth": 5,
-    "editor.cursorBlinking": "expand",
+    "editor.cursorBlinking": "smooth",
+    "editor.cursorSmoothCaretAnimation": "on",
     "editor.renderWhitespace": "all",
     "editor.snippetSuggestions": "top",
     "editor.glyphMargin": true,
@@ -33,15 +33,15 @@
     "editor.inlineSuggest.enabled": true,
     "editor.mouseWheelZoom": true,
     "editor.minimap.maxColumn": 30,
-    "window.titleBarStyle": "native",
+    "window.titleBarStyle": "custom",
     "workbench.fontAliasing": "auto",
     "workbench.editor.enablePreview": true,
     "workbench.editor.highlightModifiedTabs": true,
     "workbench.startupEditor": "newUntitledFile",
-    "workbench.colorTheme": "Tokyo Night",
     "workbench.sideBar.location": "right",
-    "workbench.iconTheme": "material-icon-theme",
+    "workbench.iconTheme": "catppuccin-macchiato",
     "workbench.secondarySideBar.showLabels": false,
+    "workbench.panel.showLabels": false,
     "workbench.colorCustomizations": {
         "editor.lineHighlightBackground": "#102032",
         "editorCursor.foreground": "#ffffff",
@@ -49,9 +49,10 @@
     },
     "workbench.editor.customLabels.patterns": {
         "**/components/**": "${filename} 🧩",
-        "**/pages/**": "${filename} 📄",
+        "**/pages/**": "${filename} 📜",
         "**/layouts/**": "${filename} 🗂️",
-        "**/services/**": "${filename} ⚙️"
+        "**/services/**": "${filename} ⚙️",
+        "**/tests/**": "${filename} 🧪"
     },
     "terminal.integrated.fontSize": 14,
     "terminal.integrated.macOptionIsMeta": true,
@@ -61,6 +62,15 @@
     "explorer.decorations.badges": false,
     "explorer.openEditors.visible": 1,
     "explorer.sortOrder": "type",
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.patterns": {
+        "*.ts": "${capture}.js",
+        "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+        "*.jsx": "${capture}.js",
+        "*.tsx": "${capture}.ts",
+        "tsconfig.json": "tsconfig.*.json",
+        "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb, bun.lock",
+    },
     "files.trimTrailingWhitespace": true,
     "files.trimFinalNewlines": true,
     "files.insertFinalNewline": true,
@@ -115,7 +125,6 @@
         "javascript"
     ],
     "git.confirmSync": false,
-    "RainbowBrackets.depreciation-notice": false,
     "redhat.telemetry.enabled": false,
     "vue.autoInsert.dotValue": true,
     "search.exclude": {
@@ -160,15 +169,25 @@
     "[handlebars]": {
         "editor.defaultFormatter": "vscode.html-language-features"
     },
+    // "indentRainbow.colors": [
+    //     "rgba(29, 78, 137,0.15)",
+    //     "rgba(58, 178, 202,0.15)",
+    //     "rgba(125, 207, 182, 0.15)",
+    //     "rgba(251, 209, 162,0.15)",
+    //     "rgba(247, 146, 86,0.15)",
+    //     "rgba(247, 146, 86,0.1)",
+    //     "rgba(247, 146, 86,0.05)"
+    // ],
+    "indentRainbow.indicatorStyle": "light",
+    "indentRainbow.lightIndicatorStyleLineWidth": 1,
     "indentRainbow.colors": [
-        "rgba(29, 78, 137,0.15)",
-        "rgba(58, 178, 202,0.15)",
-        "rgba(125, 207, 182, 0.15)",
-        "rgba(251, 209, 162,0.15)",
-        "rgba(247, 146, 86,0.15)",
-        "rgba(247, 146, 86,0.1)",
-        "rgba(247, 146, 86,0.05)"
+        "rgba(111, 158, 245, 0.28)", // functions blue
+        "rgba(176, 124, 214, 0.26)", // keywords purple
+        "rgba(169, 214, 122, 0.26)", // strings green
+        "rgba(232, 180, 99, 0.26)"   // types amber
     ],
+    "indentRainbow.errorColor": "rgba(255, 107, 125, 0.60)",
+    "indentRainbow.tabmixColor": "rgba(212, 125, 138, 0.55)",
     "http.systemCertificatesNode": true,
     "github.copilot.enable": {
         "markdown": true,
@@ -180,11 +199,11 @@
     "github.copilot.chat.otel.exporterType": "otlp-http",
     "github.copilot.chat.otel.protocol": "http/protobuf",
     "github.copilot.chat.otel.otlpEndpoint": "http://localhost:4318",
-    "github.copilot.chat.otel.captureContent": false,
+    "github.copilot.chat.otel.captureContent": true,
     "github.copilot.chat.otel.serviceName": "vscode-copilot",
     "github.copilot.chat.otel.resourceAttributes": {
         "agent.type": "vscode",
-        "client.name": "copilot-chat"
+        "client.name": "copilot-chat",
     },
     "chat.mcp.gallery.enabled": true,
     "workbench.editor.empty.hint": "hidden",
@@ -203,5 +222,10 @@
             "ui"
         ]
     },
-    "telemetry.telemetryLevel": "off"
+    "telemetry.telemetryLevel": "off",
+    "inlineChat.affordance": "editor",
+    "inlineChat.defaultModel": "Auto (copilot)",
+    "inlineChat.notebookAgent": true,
+    "git.suggestSmartCommit": false,
+    "workbench.colorTheme": "Vision Night"
 }
