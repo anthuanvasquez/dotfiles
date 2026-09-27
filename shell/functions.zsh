@@ -126,3 +126,30 @@ newrepo() {
     --remote=origin \
     --push
 }
+
+# Runs a command with OpenTelemetry environment variables set.
+with_otel() {
+  local service="$1"
+  local attrs="$2"
+  shift 2
+
+  OTEL_SERVICE_NAME="$service" \
+  OTEL_RESOURCE_ATTRIBUTES="$attrs" \
+  command "$@"
+}
+
+# Runs the Copilot CLI with OpenTelemetry environment variables set.
+copilot() {
+  with_otel \
+    "copilot-cli" \
+    "agent.vendor=github,agent.name=copilot" \
+    copilot "$@"
+}
+
+# Runs the Antigravity CLI with OpenTelemetry environment variables set.
+agy() {
+  with_otel \
+    "antigravity-cli" \
+    "agent.vendor=google,agent.name=antigravity" \
+    agy "$@"
+}

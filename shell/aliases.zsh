@@ -53,16 +53,6 @@ alias dockrmi='docker rmi $(docker images -q)'
 alias dockrmc='docker rm $(docker ps -a -q)'
 alias dockcmp='docker-compose'
 
-# -----------------------------------------------------------------------------
-# Agents
-#
-# OTEL_SERVICE_NAME and OTEL_RESOURCE_ATTRIBUTES are used to provide
-# context to the agents for telemetry and monitoring purposes.
-# -----------------------------------------------------------------------------
-
-alias copilot='OTEL_SERVICE_NAME=copilot-cli OTEL_RESOURCE_ATTRIBUTES="agent.vendor=github,agent.name=copilot" copilot'
-alias agy='OTEL_SERVICE_NAME=antigravity-cli OTEL_RESOURCE_ATTRIBUTES="agent.vendor=google,agent.name=antigravity" agy'
-
 # ------------------------------------------------------------------------------
 # Helpers
 # ------------------------------------------------------------------------------
