@@ -28,14 +28,14 @@ if [[ -d "$HOME/.cargo/bin" ]]; then
     export PATH="$HOME/.cargo/bin:$PATH"
 fi
 
+if [[ -d "/opt/homebrew/opt/rustup/bin" ]]; then
+    export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
+fi
+
 # LLVM & Others
 if [[ -d "/opt/homebrew/opt/llvm/bin" ]]; then
     export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 fi
-
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
-export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 
 # BUN
 # bun completions
@@ -45,4 +45,4 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # Export unique paths only
-typeset -U path
+typeset -U path PATH
