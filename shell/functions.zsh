@@ -112,6 +112,21 @@ trashy() {
 newrepo() {
   local name="$1"
 
+  if [[ -z "$name" ]]; then
+    echo "Usage: newrepo <repository-name>"
+    return 1
+  fi
+
+  if [[ -e "$name" ]]; then
+    echo "Error: '$name' already exists"
+    return 1
+  fi
+
+  if ! gh auth status &>/dev/null; then
+    echo "Error: GitHub CLI is not authenticated."
+    return 1
+  fi
+
   mkdir "$name" &&
   cd "$name" &&
   git init -b main &&
