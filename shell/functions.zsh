@@ -163,3 +163,13 @@ agy() {
     "agent.vendor=google,agent.name=antigravity" \
     agy "$@"
 }
+
+# Kills the process running on the specified port.
+killport() {
+  lsof -ti :"$1" | xargs kill
+}
+
+# Searches for processes matching the given pattern (case-insensitive).
+psg() {
+  pgrep -af "$@"
+}
