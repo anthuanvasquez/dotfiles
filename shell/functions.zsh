@@ -108,6 +108,7 @@ trashy() {
   fi
 }
 
+# Initializes a new Git repository and optionally creates it on GitHub.
 newrepo() {
   local name="$1"
 
