@@ -65,7 +65,7 @@ alias pkgclean="npm cache clean --force && pnpm store prune && rm -rf ~/.cache/*
 alias zgit='lazygit'
 alias zdocker='lazydocker'
 alias openv="op run --env-file=.env --"
-alias zshconfig="code ~/.zshrc"
-alias vscodeconfig="code ~/Library/Application Support/Code/User/settings.json"
+alias zshConfig="code ~/.zshrc"
+alias vscodeConfig="code ~/Library/Application Support/Code/User/settings.json"
 alias copilotConfig="code ~/.copilot/settings.json"
 alias agyConfig="code ~/.gemini/antigravity-cli/settings.json"
