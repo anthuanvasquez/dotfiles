@@ -127,19 +127,14 @@ newrepo() {
     return 1
   fi
 
-  mkdir "$name" &&
-  cd "$name" &&
-  git init -b main &&
-  echo "# $name" > README.md &&
-  echo ".DS_Store" > .gitignore &&
-  echo "MIT License" > LICENSE &&
-  git add . &&
-  git commit -m "chore: initial commit" &&
   gh repo create "$name" \
+    --template anthuanvasquez/repo-template \
     --private \
-    --source=. \
-    --remote=origin \
-    --push
+    --clone || return 1
+
+  cd "$name" || return 1
+
+  echo "Repository '$name' created successfully."
 }
 
 # Runs a command with OpenTelemetry environment variables set.
