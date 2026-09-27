@@ -1,8 +1,8 @@
 # Global PATH configuration
 # This file is sourced by .zshrc
 
-# Reset PATH to system defaults + personal binaries
-export PATH="$HOME/bin:$HOME/.local/bin:$DOTFILES/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+# Personal binaries
+export PATH="$HOME/bin:$HOME/.local/bin:$DOTFILES/bin:$PATH"
 
 # Homebrew (macOS)
 if [[ -d "/opt/homebrew/bin" ]]; then
