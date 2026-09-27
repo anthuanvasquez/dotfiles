@@ -15,8 +15,17 @@ source "$DOTFILES/shell/aliases.zsh"
 source "$DOTFILES/shell/functions.zsh"
 source "$DOTFILES/shell/macos_aliases.zsh"
 
-# 4. Native Zsh Completion System
-autoload -Uz compinit && compinit
+# 4. Native Zsh Completion System (cached daily to skip compaudit overhead)
+autoload -Uz compinit
+() {
+  local zcompdump="${ZDOTDIR:-$HOME}/.zcompdump"
+  setopt localoptions extendedglob
+  if [[ ! -f "$zcompdump" || -n "$zcompdump"(#qN.mh+24) ]]; then
+    compinit -d "$zcompdump"
+  else
+    compinit -C -d "$zcompdump"
+  fi
+}
 
 # 5. Prompt / Theme (Oh-My-Posh)
 if command -v oh-my-posh &>/dev/null; then
@@ -33,8 +42,8 @@ command -v fnm &>/dev/null && eval "$(fnm env --use-on-cd --shell zsh)"
 command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
 command -v fzf &>/dev/null && source <(fzf --zsh)
 command -v atuin &>/dev/null && eval "$(atuin init zsh)"
-command -v pyenv &>/dev/null && eval "$(pyenv init - zsh)"
-command -v rbenv &>/dev/null && eval "$(rbenv init -)"
+command -v pyenv &>/dev/null && eval "$(pyenv init - --no-rehash zsh)"
+command -v rbenv &>/dev/null && eval "$(rbenv init - --no-rehash)"
 
 # 7. 1Password CLI completions & shell plugins (guarded, zero overhead)
 [[ -f "$HOME/.config/op/completion.zsh" ]] && source "$HOME/.config/op/completion.zsh"
