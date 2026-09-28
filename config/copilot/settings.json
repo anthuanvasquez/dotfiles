@@ -6,5 +6,54 @@
   "feature_flags": {
     "enabled": ["STATUS_LINE"]
   },
-  "experimental": true
+  "experimental": true,
+  "permissions": {
+    "deny": [
+      "Shell(rm -rf *)",
+      "Shell(sudo *)",
+      "Shell(chmod *)",
+      "Shell(chown *)",
+      "Shell(git push --force *)",
+      "Shell(git reset --hard *)"
+    ],
+    "ask": [
+      "Shell(git push *)",
+      "Shell(git pull *)",
+      "Shell(git merge *)",
+      "Shell(git rebase *)",
+      "Shell(git reset *)",
+      "Shell(pnpm install *)",
+      "Shell(pnpm update *)",
+      "Shell(pnpm remove *)",
+      "Shell(docker *)",
+      "Shell(kubectl *)",
+      "Shell(terraform *)",
+      "Shell(curl *)",
+      "Shell(wget *)",
+      "Shell(ssh *)",
+      "Shell(scp *)"
+    ],
+    "allow": [
+      "Read(**)",
+      "Edit(**)",
+      "Shell(pwd)",
+      "Shell(ls *)",
+      "Shell(cat *)",
+      "Shell(head *)",
+      "Shell(tail *)",
+      "Shell(rg *)",
+      "Shell(find *)",
+      "Shell(which *)",
+      "Shell(echo *)",
+      "Shell(obsidian *)",
+      "Shell(git status *)",
+      "Shell(git diff *)",
+      "Shell(git log *)",
+      "Shell(git branch *)",
+      "Shell(git show *)",
+      "Shell(pnpm lint *)",
+      "Shell(pnpm test *)",
+      "Shell(pnpm typecheck *)"
+    ]
+  }
 }
