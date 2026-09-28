@@ -2,5 +2,38 @@
   "statusLine": {
     "type": "command",
     "command": "oh-my-posh antigravity --config ~/Sites/dotfiles/config/oh-my-posh/themes/tokyonight_storm_agents.omp.json"
+  },
+  "permissions": {
+    "allow": [
+      "command(git status)",
+      "command(git diff)",
+      "command(git log)",
+      "command(obsidian)",
+      "command(rg)",
+      "command(cat)",
+      "command(ls)",
+      "command(pwd)",
+      "command(which)",
+      "command(regex:pnpm (lint|test|typecheck))"
+    ],
+    "deny": [
+      "command(sudo)",
+      "command(rm -rf)",
+      "command(regex:curl .*)",
+      "command(regex:wget .*)",
+      "write_file(.git/)",
+      "write_file(~/.ssh)",
+      "write_file(~/.aws)"
+    ],
+    "ask": [
+      "command(git push)",
+      "command(gh)",
+      "command(docker)",
+      "command(pnpm install)",
+      "command(npx)",
+      "command(terraform)",
+      "command(kubectl)",
+      "mcp(*)"
+    ]
   }
 }
