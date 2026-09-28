@@ -34,6 +34,8 @@
     "editor.mouseWheelZoom": true,
     "editor.minimap.maxColumn": 30,
     "window.titleBarStyle": "custom",
+    "workbench.editor.empty.hint": "hidden",
+    "workbench.experimental.modernUI": true,
     "workbench.fontAliasing": "auto",
     "workbench.editor.enablePreview": true,
     "workbench.editor.highlightModifiedTabs": true,
@@ -203,20 +205,10 @@
     "github.copilot.chat.otel.serviceName": "vscode-copilot",
     "github.copilot.chat.otel.resourceAttributes": {
         "agent.type": "vscode",
-        "client.name": "copilot-chat",
+        "client.name": "copilot-chat"
     },
-    "chat.mcp.gallery.enabled": true,
-    "workbench.editor.empty.hint": "hidden",
     "todo-tree.ripgrep.ripgrep": "/opt/homebrew/bin/rg",
-    "workbench.experimental.modernUI": true,
     "gitlens.launchpad.indicator.enabled": false,
-    "chat.viewSessions.orientation": "stacked",
-    "chat.sessionSync.enabled": true,
-    "chat.viewProgressBadge.enabled": true,
-    "chat.subagents.allowInvocationsFromSubagents": true,
-    "chat.promptFilesLocations": {
-        "~/.copilot/prompts": true
-    },
     "remote.extensionKind": {
         "pub.name": [
             "ui"
@@ -227,5 +219,46 @@
     "inlineChat.defaultModel": "Auto (copilot)",
     "inlineChat.notebookAgent": true,
     "git.suggestSmartCommit": false,
-    "workbench.colorTheme": "Vision Night"
+    "workbench.colorTheme": "Vision Night",
+    "chat.mcp.gallery.enabled": true,
+    "chat.sessionSync.enabled": true,
+    "chat.viewProgressBadge.enabled": true,
+    "chat.subagents.allowInvocationsFromSubagents": true,
+    "chat.promptFilesLocations": {
+        "~/.copilot/prompts": true
+    },
+    "chat.viewSessions.orientation": "stacked",
+    "chat.tools.terminal.autoApprove": {
+        "pwd": true,
+        "ls": true,
+        "cat": true,
+        "head": true,
+        "tail": true,
+        "rg": true,
+        "find": true,
+        "which": true,
+        "echo": true,
+        "obsidian": true,
+        "/^git (status|diff|log|branch|show)\\b.*$/": true,
+        "/^pnpm (lint|test|typecheck)\\b.*$/": true,
+        "/^pnpm run (lint|test|typecheck)\\b.*$/": true,
+        "/^git push\\b.*$/": false,
+        "/^git pull\\b.*$/": false,
+        "/^git merge\\b.*$/": false,
+        "/^git rebase\\b.*$/": false,
+        "/^git reset\\b.*$/": false,
+        "/^(npm|pnpm) (install|update|remove)\\b.*$/": false,
+        "/^docker\\b.*$/": false,
+        "/^docker compose\\b.*$/": false,
+        "/^kubectl\\b.*$/": false,
+        "/^terraform\\b.*$/": false,
+        "/^curl\\b.*$/": false,
+        "/^wget\\b.*$/": false,
+        "/^ssh\\b.*$/": false,
+        "/^scp\\b.*$/": false,
+        "rm": false,
+        "sudo": false,
+        "chmod": false,
+        "chown": false
+    }
 }
