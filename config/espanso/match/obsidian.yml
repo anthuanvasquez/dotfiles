@@ -1,0 +1,23 @@
+# Obsidian note template
+matches:
+  - trigger: ":note"
+    replace: |
+      ---
+      id: {{noteid}}
+      type: note
+      status: seedling
+      created: {{notedate}}
+      tags:
+        - note
+      ---
+
+      # $|$
+    vars:
+      - name: notedate
+        type: date
+        params:
+          format: "%Y-%m-%d"
+      - name: noteid
+        type: date
+        params:
+          format: "%Y%m%d%H%M%S"

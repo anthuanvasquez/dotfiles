@@ -1,0 +1,12 @@
+# Shell-related snippets
+matches:
+  - trigger: ":myip"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "myip"
+
+  - trigger: ":uuid"
+    replace: "{{uuid}}"

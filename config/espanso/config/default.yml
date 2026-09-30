@@ -1,0 +1,17 @@
+# For a list of all the available options, visit the official docs at: https://espanso.org/docs/
+
+search_shortcut: ALT+SHIFT+SPACE
+
+backend: clipboard
+
+show_icon: false
+
+show_notifications: false
+
+max_regex_buffer_size: 500
+
+clipboard_threshold: 250
+
+pre_paste_delay: 300
+
+restore_clipboard_delay: 300

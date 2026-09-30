@@ -1,0 +1,42 @@
+# Development-related snippets
+matches:
+  # Pull request template
+  - trigger: ":pr"
+    replace: |
+      ## Context
+
+      ## Problem
+
+      ## Proposed Solution
+
+      ## Acceptance Criteria
+
+      ## Notes
+
+  # Analyze code snippet
+  - trigger: ":analyze"
+    replace: |
+      Analyze the following code:
+
+      Requirements:
+      - Security
+      - Performance
+      - Maintainability
+      - Accessibility
+
+      Code:
+
+  # Architectural Decision Record (ADR) template
+  - trigger: ":adr"
+    replace: |
+      # ADR-XXX
+
+      ## Context
+
+      ## Decision
+
+      ## Consequences
+
+      ## Alternatives Considered
+
+      ## References

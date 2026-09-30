@@ -1,0 +1,16 @@
+# Personal information shortcuts
+matches:
+  - trigger: ":me"
+    replace: "Anthuan Vásquez"
+
+  - trigger: ":mail"
+    replace: "your@email.com"
+
+  - trigger: ":site"
+    replace: "https://anthuanvasquez.net"
+
+  - trigger: ":gh"
+    replace: "https://github.com/anthuanvasquez"
+
+  - trigger: ":lk"
+    replace: "https://www.linkedin.com/in/anthuanvasquez"
