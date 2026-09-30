@@ -45,8 +45,8 @@ export DOTFILES="$DOTFILES_ROOT"
 # shellcheck source=lib/utils.sh
 source "$DOTFILES_ROOT/lib/utils.sh"
 
-echo "🎯 Dotfiles macOS Orchestrator"
-echo "   Root: $DOTFILES_ROOT"
+echo "Dotfiles macOS Orchestrator"
+echo "Root: $DOTFILES_ROOT"
 
 # ------------------------------------------------------------------------------
 # 1. Platform Verification
