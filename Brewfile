@@ -15,31 +15,37 @@ tap "deskflow/tap"
 # Formulas
 # -----------------------------------------------
 
+# Terminal & Shell Tools
 brew "zsh"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 brew "oh-my-posh"
-brew "atuin"
-brew "zoxide"
-brew "fzf"
-brew "eza"
-brew "dust"
-brew "btop"
-brew "ripgrep"
-brew "fd"
-brew "sd"
-brew "bat"
-brew "gh"
-brew "tree"
+brew "atuin"                        # Shell history manager
+brew "zoxide"                       # Fast directory jumper
+brew "fzf"                          # Command-line fuzzy finder
+brew "eza"                          # Modern replacement for 'ls' command
+brew "btop"                         # Resource monitor alternative to 'htop'
+brew "ripgrep"                      # Fast search tool, alternative to 'grep'
+brew "fd"                           # Simple, fast and user-friendly alternative to 'find' command
+brew "bat"                          # Cat clone with syntax highlighting
+brew "dust"                         # Disk usage analyzer - alternative to 'du' command
+brew "sd"                           # Find and replace tool - alternative to 'sed' command
+brew "gh"                           # GitHub CLI
+
+# Programming Languages & Version Managers
 brew "fnm"
 brew "bun"
 brew "go"
 brew "pyenv"
 brew "rbenv"
-brew "rclone"
-brew "deskflow"
 brew "git-lfs"
 brew "git-delta"
+
+# Utilities
+brew "deskflow"
+brew "rclone"
+brew "thaw"
+brew "espanso"
 brew "macos-fuse-t/homebrew-cask/fuse-t"
 
 # Casks
@@ -48,9 +54,8 @@ brew "macos-fuse-t/homebrew-cask/fuse-t"
 # Development Tools
 cask "docker-desktop"
 cask "visual-studio-code"
-cask "warp"
+cask "ghostty"
 cask "bruno"
-cask "github"
 cask "wakatime"
 
 # AI Tools
@@ -63,10 +68,11 @@ cask "raycast"
 cask "calibre"
 cask "obsidian"
 cask "notion"
+cask "keka"
 cask "thunderbird"
 
 # Browsers
-cask "google-chrome"
+cask "firefox"
 
 # Communication & Media
 cask "discord"
