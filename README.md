@@ -9,7 +9,7 @@ Personal, automated, and modular configuration designed exclusively for **macOS*
 | `bin/` | Personal CLI tools automatically added to `$PATH`. |
 | `config/` | Static configuration files (Git configs, Eza theme, Oh-My-Posh themes, Rclone ignore). |
 | `lib/utils.sh` | Shared shell helper functions (`info`, `warn`, `error`, `success`). |
-| `modules/` | Modular runtime and app configurators (`git`, `macos`, `node`, `python`, `rclone`, `ruby`, `vscode`). |
+| `modules/` | Modular runtime and app configurators (`1password`, `espanso`, `git`, `macos`, `node`, `python`, `rclone`, `ruby`, `vscode`). |
 | `shell/` | Modular Zsh configuration (`path.zsh`, `env.zsh`, `aliases.zsh`, `functions.zsh`, `macos_aliases.zsh`, `zshrc.zsh`). |
 | `Brewfile` | Declarative Homebrew package list (CLI tools, casks, fonts). |
 | `install.sh` | Unified entry point for fresh installs and updates. |
