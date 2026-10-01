@@ -18,6 +18,11 @@ if [[ -d "$VSCODE_USER_DIR" ]]; then
   cp "$DOTFILES_ROOT/modules/vscode/keybindings.json" "$VSCODE_USER_DIR/keybindings.json"
 fi
 
+if [[ "${CI:-false}" == "true" ]]; then
+  info "CI environment detected. Skipping VS Code extensions."
+  exit 0
+fi
+
 if ! command -v code &>/dev/null; then
   warn "'code' CLI tool not found. Skipping VS Code extension setup."
   exit 0
