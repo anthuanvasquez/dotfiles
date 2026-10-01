@@ -25,9 +25,12 @@ alias ll='eza -lh'
 alias la="eza -lha"
 alias lsd='eza -l | grep "^d"'
 alias cat='bat'
-alias grep='rg'
+alias grep='rg --color=auto'
+alias diff='diff --color=auto'
 alias find='fd'
 alias cd='z'
+alias df='df -h'
+alias dotfiles='cd ${DOTFILES_DIR}'
 
 # ------------------------------------------------------------------------------
 # Git
