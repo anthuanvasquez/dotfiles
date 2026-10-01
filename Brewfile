@@ -40,6 +40,9 @@ brew "pyenv"
 brew "rbenv"
 brew "git-lfs"
 brew "git-delta"
+brew "colima"
+brew "docker"
+brew "docker-compose"
 
 # Utilities
 brew "rclone"
@@ -49,7 +52,6 @@ brew "betterleaks"
 # -----------------------------------------------
 
 # Development Tools
-cask "docker-desktop"
 cask "visual-studio-code"
 cask "ghostty"
 cask "bruno"
