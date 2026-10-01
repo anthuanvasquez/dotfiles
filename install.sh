@@ -45,8 +45,16 @@ export DOTFILES="$DOTFILES_ROOT"
 # shellcheck source=lib/utils.sh
 source "$DOTFILES_ROOT/lib/utils.sh"
 
+# Parse flags and detect CI environment
+IS_CI="${CI:-false}"
+for arg in "$@"; do
+  [[ "$arg" == "--ci" ]] && IS_CI="true"
+done
+export CI="$IS_CI"
+
 echo "Dotfiles macOS Orchestrator"
 echo "Root: $DOTFILES_ROOT"
+[[ "$IS_CI" == "true" ]] && echo "Mode: CI (Lightweight)"
 
 # ------------------------------------------------------------------------------
 # 1. Platform Verification
@@ -88,8 +96,16 @@ if brew help trust &>/dev/null; then
   brew trust deskflow/tap 2>/dev/null || true
 fi
 
-info "Installing dependencies from Brewfile..."
-brew bundle --file="$DOTFILES_ROOT/Brewfile"
+if [[ "$IS_CI" == "true" ]]; then
+  info "Installing dependencies from Brewfile (CI mode: skipping casks)..."
+  while IFS= read -r line; do
+    [[ "$line" =~ ^cask\  ]] && continue
+    printf '%s\n' "$line"
+  done < "$DOTFILES_ROOT/Brewfile" | brew bundle --file=-
+else
+  info "Installing dependencies from Brewfile..."
+  brew bundle --file="$DOTFILES_ROOT/Brewfile"
+fi
 
 # ------------------------------------------------------------------------------
 # 4. Dotfiles Configuration (Option A: Zero Symlinks)
