@@ -42,11 +42,8 @@ brew "git-lfs"
 brew "git-delta"
 
 # Utilities
-brew "deskflow"
 brew "rclone"
-brew "thaw"
-brew "espanso"
-brew "macos-fuse-t/homebrew-cask/fuse-t"
+brew "betterleaks"
 
 # Casks
 # -----------------------------------------------
@@ -65,6 +62,9 @@ cask "stablyai/orca/orca"
 
 # Productivity & Knowledge
 cask "raycast"
+cask "espanso"
+cask "thaw"
+cask "deskflow"
 cask "calibre"
 cask "obsidian"
 cask "notion"
@@ -82,5 +82,5 @@ cask "spotify"
 cask "1password"
 cask "1password-cli"
 cask "tailscale-app"
-cask "betterleaks"
+cask "fuse-t"
 cask "veracrypt-fuse-t"
