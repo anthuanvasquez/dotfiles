@@ -43,6 +43,8 @@ brew "git-delta"
 brew "colima"
 brew "docker"
 brew "docker-compose"
+brew "lazygit"
+brew "lazydocker"
 
 # Utilities
 brew "rclone"
