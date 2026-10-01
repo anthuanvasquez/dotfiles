@@ -18,6 +18,11 @@ export RBENV_ROOT="${RBENV_ROOT:-$HOME/.rbenv}"
 export PATH="$RBENV_ROOT/bin:$PATH"
 eval "$(rbenv init - zsh)"
 
+if [[ "${CI:-false}" == "true" ]]; then
+  info "CI environment detected. Skipping Ruby compilation."
+  exit 0
+fi
+
 RUBY_VERSION="3.3.8"
 
 info "Installing Ruby ${RUBY_VERSION}..."
