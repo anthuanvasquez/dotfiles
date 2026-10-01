@@ -25,7 +25,7 @@ jobs:
       - name: Run Dotfiles Installer
         run: |
           echo "🚀 Running ./install.sh..."
-          ./install.sh
+          ./install.sh --ci
 
       - name: Run Environment Diagnostics
         run: |
