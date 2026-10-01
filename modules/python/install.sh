@@ -18,6 +18,11 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
+if [[ "${CI:-false}" == "true" ]]; then
+  info "CI environment detected. Skipping Python compilation."
+  exit 0
+fi
+
 info "Installing Python 3.12..."
 pyenv install -s 3.12
 pyenv global 3.12
