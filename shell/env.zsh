@@ -1,7 +1,7 @@
 # Global Environment Variables
 # This file is sourced by .zshrc after path.zsh
 
-export EDITOR="nano"
+export EDITOR="code"
 export VISUAL="code"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
