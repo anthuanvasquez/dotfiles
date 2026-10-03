@@ -56,6 +56,33 @@ alias dockrmi='docker rmi $(docker images -q)'
 alias dockrmc='docker rm $(docker ps -a -q)'
 alias dockcmp='docker-compose'
 
+# Show files
+
+alias -s md="bat"
+alias -s txt="bat"
+alias -s json="jless"
+alias -s yml="bat -l yaml"
+alias -s ts="$EDITOR"
+alias -s js="$EDITOR"
+alias -s html="$EDITOR"
+alias -s css="$EDITOR"
+alias -s scss="$EDITOR"
+alias -s xml="$EDITOR"
+alias -s rb="$EDITOR"
+alias -s py="$EDITOR"
+alias -s png="open"
+
+# Global aliases
+
+alias -g NE="2>/dev/null"
+alias -g DN="> /dev/null"
+alias -g NUL="> /dev/null 2>&1"
+alias -g JQ="| jq"
+alias -g GREP="| rg"
+alias -g C="| pbcopy"
+alias -g P="| pbpaste"
+alias -g L="| less"
+
 # ------------------------------------------------------------------------------
 # Helpers
 # ------------------------------------------------------------------------------
