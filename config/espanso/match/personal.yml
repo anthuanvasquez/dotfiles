@@ -1,16 +1,32 @@
 # Personal information shortcuts
 matches:
-  - trigger: ":me"
+  - trigger: ";me"
     replace: "Anthuan Vásquez"
 
-  - trigger: ":mail"
+  - trigger: ";me-mail"
     replace: "your@email.com"
 
-  - trigger: ":site"
+  - trigger: ";me-site"
     replace: "https://anthuanvasquez.net"
 
-  - trigger: ":gh"
+  - trigger: ";me-gh"
     replace: "https://github.com/anthuanvasquez"
 
-  - trigger: ":lk"
+  - trigger: ";me-link"
     replace: "https://www.linkedin.com/in/anthuanvasquez"
+
+  - trigger: ":today"
+    replace: "{{date}}"
+    vars:
+      - name: date
+        type: date
+        params:
+          format: "%Y-%m-%d"
+
+  - trigger: ":now"
+    replace: "{{time}}"
+    vars:
+      - name: time
+        type: date
+        params:
+          format: "%H:%M"

@@ -1,7 +1,7 @@
 # Development-related snippets
 matches:
   # Pull request template
-  - trigger: ":pr"
+  - trigger: ";pr"
     replace: |
       ## Context
 
@@ -14,7 +14,7 @@ matches:
       ## Notes
 
   # Analyze code snippet
-  - trigger: ":analyze"
+  - trigger: ";analyze"
     replace: |
       Analyze the following code:
 
@@ -27,7 +27,7 @@ matches:
       Code:
 
   # Architectural Decision Record (ADR) template
-  - trigger: ":adr"
+  - trigger: ";adr"
     replace: |
       # ADR-XXX
 
@@ -40,3 +40,7 @@ matches:
       ## Alternatives Considered
 
       ## References
+
+  # Log statement snippet
+  - trigger: ";log"
+    replace: "console.log($|$);"

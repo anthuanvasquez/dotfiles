@@ -1,6 +1,6 @@
 # Obsidian note template
 matches:
-  - trigger: ":note"
+  - trigger: ";note"
     replace: |
       ---
       id: {{noteid}}

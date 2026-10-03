@@ -1,6 +1,6 @@
 # Shell-related snippets
 matches:
-  - trigger: ":myip"
+  - trigger: ";myip"
     replace: "{{output}}"
     vars:
       - name: output
@@ -8,5 +8,5 @@ matches:
         params:
           cmd: "myip"
 
-  - trigger: ":uuid"
+  - trigger: ";uuid"
     replace: "{{uuid}}"

@@ -1,25 +1,25 @@
 # Git-related snippets
 matches:
   # Conventional commit types
-  - trigger: ":feat"
+  - trigger: ";feat"
     replace: "feat(): "
 
-  - trigger: ":fix"
+  - trigger: ";fix"
     replace: "fix(): "
 
-  - trigger: ":docs"
+  - trigger: ";docs"
     replace: "docs(): "
 
-  - trigger: ":ref"
+  - trigger: ";ref"
     replace: "refactor(): "
 
-  - trigger: ":chore"
+  - trigger: ";chore"
     replace: "chore(): "
 
-  - trigger: ":branch"
+  - trigger: ";branch"
     replace: "feature/"
 
   # Ticket branch template
-  - trigger: ":ticket"
+  - trigger: ";ticket"
     form: |
       feature/[[id]]
