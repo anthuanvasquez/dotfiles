@@ -1,0 +1,14 @@
+# ~/.config/ghostty/config.ghostty
+# Ghostty configuration file
+
+theme = Catppuccin Macchiato
+font-family = JetBrainsMono NFM Regular
+font-size = 16
+font-thicken = true
+window-padding-balance = true
+window-padding-y = 20
+window-padding-x = 20
+background-opacity = 0.95
+background-blur-radius = 20
+cursor-style = bar
+cursor-style-blink = true
